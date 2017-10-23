@@ -1,3 +1,5 @@
 ﻿  main.cpp
-  05_Geometry.vcxproj -> C:\Users\steve\Desktop\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\05_Geometry.exe
+d:\bsc-live-coding\comp220\comp220_examples\05_geometry\main.cpp(306): warning C4305: '+=': truncation from 'double' to 'float'
+  05_Geometry.vcxproj -> D:\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\05_Geometry.exe
+  05_Geometry.vcxproj -> D:\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\05_Geometry.pdb (Partial PDB)
           1 file(s) copied.
