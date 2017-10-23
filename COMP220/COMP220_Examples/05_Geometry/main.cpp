@@ -171,9 +171,9 @@ int main(int argc, char* args[])
 		{ -0.5, -0.5, 0.5, 0.0f, 0.0f, 1.0f, 1.0f },	//C 2
 		{ 0.5, -0.5, 0.5, 1.0f, 1.0f, 0.0f, 1.0f },		//D 3
 		{ -0.5, 0.5, -0.5, 0.0f, 1.0f, 1.0f, 1.0f },	//E 4
-		{ 0.5, 0.5, -0.5, 1.0f, 0.0f, 1.0f, 1.0f },		//F 5
-		{ -0.5, -0.5, -0.5, 1.0f, 1.0f, 1.0f, 1.0f },	//G 6
-		{ 0.5, -0.5, -0.5, 0.0f, 0.0f, 0.0f, 1.0f },	//H 7
+		{ 0.5, 0.5, -0.5, 1.0f, 1.0f, 1.0f, 1.0f },		//F 5
+		{ -0.5, -0.5, -0.5, 1.0f, 1.0f, 0.0f, 1.0f },	//G 6
+		{ 0.5, -0.5, -0.5, 0.0f, 0.0f, 1.0f, 0.0f },	//H 7
 
 	};
 
@@ -226,7 +226,7 @@ int main(int argc, char* args[])
 
 	mat4 modelMatrix = translationMatrix * rotationMatrix * scaleMatrix;
 
-	vec3 cameraPosition = vec3(0.0f, 0.0f, -5.0f);
+	vec3 cameraPosition = vec3(1.0f, 2.0f, -5.0f);
 	vec3 cameraTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
 
@@ -299,13 +299,27 @@ int main(int argc, char* args[])
 				case SDLK_ESCAPE:
 					running = false;
 					break;
-				};
-				{
+
 					//Right Key
 				case SDLK_RIGHT:
-					triangleRotation.y += 0.1;
+					triangleRotation.y += 0.5;
 					break;
-				};
+
+					//Left Key
+				case SDLK_LEFT:
+					triangleRotation.y += -0.5;
+					break;
+
+					//Up Key
+				case SDLK_UP:
+					triangleRotation.x += 0.5;
+					break;
+
+					//Down Key
+				case SDLK_DOWN:
+					triangleRotation.x += -0.5;
+					break;
+				}
 			}
 		}
 
