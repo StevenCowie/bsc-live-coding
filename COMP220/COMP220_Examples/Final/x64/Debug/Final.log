@@ -1,4 +1,5 @@
-﻿  Texture.cpp
+﻿  main.cpp
+  Texture.cpp
   Shader.cpp
   Model.cpp
 d:\bsc-live-coding\comp220\comp220_examples\final\model.cpp(67): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
@@ -6,7 +7,6 @@ d:\bsc-live-coding\comp220\comp220_examples\final\model.cpp(68): warning C4267: 
   Mesh.cpp
 d:\bsc-live-coding\comp220\comp220_examples\final\mesh.cpp(44): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
 d:\bsc-live-coding\comp220\comp220_examples\final\mesh.cpp(45): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-  main.cpp
   Generating Code...
      Creating library D:\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\Final.lib and object D:\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\Final.exp
   Final.vcxproj -> D:\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\Final.exe

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0_SDL_Window", "0_SDL_Window\0_SDL_Window.vcxproj", "{BAD28DBE-A88A-46D6-B960-D9FF71B9250D}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_Texture", "07_Texture\07_Texture.vcxproj", "{289B4462-814D-4BAB-A0DE-3A98C6C73A67}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06_Mesh", "06_Mesh\06_Mesh.vcxproj", "{57E226A6-4175-4970-A40A-A33796D50DCB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "13_BulletPhysics", "13_BulletPhysics\13_BulletPhysics.vcxproj", "{513C421C-A1CF-40FE-9CED-45810E3F9958}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Final", "Final\Final.vcxproj", "{1E15A663-5C5C-4742-8ABC-77A84679C120}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,22 @@ Global
 		{57E226A6-4175-4970-A40A-A33796D50DCB}.Release|x64.Build.0 = Release|x64
 		{57E226A6-4175-4970-A40A-A33796D50DCB}.Release|x86.ActiveCfg = Release|Win32
 		{57E226A6-4175-4970-A40A-A33796D50DCB}.Release|x86.Build.0 = Release|Win32
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Debug|x64.ActiveCfg = Debug|x64
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Debug|x64.Build.0 = Debug|x64
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Debug|x86.ActiveCfg = Debug|Win32
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Debug|x86.Build.0 = Debug|Win32
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Release|x64.ActiveCfg = Release|x64
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Release|x64.Build.0 = Release|x64
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Release|x86.ActiveCfg = Release|Win32
+		{513C421C-A1CF-40FE-9CED-45810E3F9958}.Release|x86.Build.0 = Release|Win32
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Debug|x64.ActiveCfg = Debug|x64
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Debug|x64.Build.0 = Debug|x64
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Debug|x86.ActiveCfg = Debug|Win32
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Debug|x86.Build.0 = Debug|Win32
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Release|x64.ActiveCfg = Release|x64
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Release|x64.Build.0 = Release|x64
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Release|x86.ActiveCfg = Release|Win32
+		{1E15A663-5C5C-4742-8ABC-77A84679C120}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
