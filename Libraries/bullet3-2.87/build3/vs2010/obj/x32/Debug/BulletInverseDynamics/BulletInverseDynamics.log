@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x32\Debug\BulletInverseDynamics\) contains files shared from another project (BulletInverseDynamics.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  IDMath.cpp
+  MultiBodyTree.cpp
+  MultiBodyTreeInitCache.cpp
+  MultiBodyTreeImpl.cpp
+  BulletInverseDynamics.vcxproj -> D:\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\BulletInverseDynamics_vs2010_debug.lib

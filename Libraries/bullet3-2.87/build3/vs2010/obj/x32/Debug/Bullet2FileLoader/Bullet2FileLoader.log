@@ -1,0 +1,7 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x32\Debug\Bullet2FileLoader\) contains files shared from another project (Bullet2FileLoader.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  b3BulletFile.cpp
+  b3Chunk.cpp
+  b3DNA.cpp
+  b3File.cpp
+  b3Serializer.cpp
+  Bullet2FileLoader.vcxproj -> D:\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\Bullet2FileLoader_vs2010_debug.lib
