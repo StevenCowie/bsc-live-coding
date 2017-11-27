@@ -1,0 +1,17 @@
+﻿  main.cpp
+  Mesh.cpp
+  Model.cpp
+  Shader.cpp
+  Texture.cpp
+  13_BulletPhysics.vcxproj -> D:\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\13_BulletPhysics.exe
+  13_BulletPhysics.vcxproj -> D:\bsc-live-coding\COMP220\COMP220_Examples\x64\Debug\13_BulletPhysics.pdb (Partial PDB)
+          1 file(s) copied.
+  ..\..\..\Libraries\SDL2_image-2.0.1\lib\x64\libjpeg-9.dll
+  ..\..\..\Libraries\SDL2_image-2.0.1\lib\x64\libpng16-16.dll
+  ..\..\..\Libraries\SDL2_image-2.0.1\lib\x64\libtiff-5.dll
+  ..\..\..\Libraries\SDL2_image-2.0.1\lib\x64\libwebp-4.dll
+  ..\..\..\Libraries\SDL2_image-2.0.1\lib\x64\SDL2_image.dll
+  ..\..\..\Libraries\SDL2_image-2.0.1\lib\x64\zlib1.dll
+          6 file(s) copied.
+          1 file(s) copied.
+          1 file(s) copied.
