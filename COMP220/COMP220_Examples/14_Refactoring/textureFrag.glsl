@@ -12,4 +12,5 @@ uniform sampler2D baseTexture;
 void main()
 {
 	colour=texture2D(baseTexture,vertexTextureCoordOut);
+	//colour=fragColour;
 }

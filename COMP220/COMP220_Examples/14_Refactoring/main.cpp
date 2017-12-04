@@ -66,7 +66,7 @@ int main(int argc, char* args[])
 	droid->loadMesh("GNK_Droid.FBX");
 	droid->loadDiffuseMap("GNK_BaseColor.png");
 	droid->setPosition(glm::vec3(0.0f, 5.0f, 0.0f));
-	droid->loadShadersProgram("lightingVert.glsl", "lightingFrag.glsl");
+	droid->loadShadersProgram("textureVert.glsl", "textureFrag.glsl");
 
 	/*vec3 trianglePosition = vec3(0.0f,0.0f,0.0f);
 	vec3 triangleScale = vec3(0.1f, 0.1f, 0.1f);
@@ -165,18 +165,18 @@ int main(int argc, char* args[])
 				case SDLK_ESCAPE:
 					running = false;
 					break;
-				case SDLK_RIGHT:
-					triangleRotation.y += 0.2f;
-					break;
-				case SDLK_LEFT:
-					triangleRotation.y -= 0.2f;
-					break;
-				case SDLK_UP:
-					trianglePosition.z -= 0.1f;
-					break;
-				case SDLK_DOWN:
-					triangleRotation.z += 0.1f;
-					break;
+				//case SDLK_RIGHT:
+				//	triangleRotation.y += 0.2f;
+				//	break;
+				//case SDLK_LEFT:
+				//	triangleRotation.y -= 0.2f;
+				//	break;
+				//case SDLK_UP:
+				//	trianglePosition.z -= 0.1f;
+				//	break;
+				//case SDLK_DOWN:
+				//	triangleRotation.z += 0.1f;
+				//	break;
 
 
 				case SDLK_w:
@@ -197,17 +197,28 @@ int main(int argc, char* args[])
 			}
 		}
 		//Update Game and Draw with OpenGL!!
+		viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
+		//droid->update();
+
+
+		glClearColor(1.0, 0.0, 0.0, 1.0);
+		glClearDepth(1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		droid->update();
 		droid->preRender();
 		GLuint currentShaderPogramID = droid->getShaderProgramID();
 		
 		GLint viewMatrixLocation = glGetUniformLocation(currentShaderPogramID, "viewMatrix");
 		GLint projectionMatrixLocation = glGetUniformLocation(currentShaderPogramID, "projectionMatrix");
+
 		GLint lightDirectionLocation = glGetUniformLocation(currentShaderPogramID, "lightDirection");
 		GLint diffuseLightColourLocation = glGetUniformLocation(currentShaderPogramID, "diffuseLightColour");
 
+		glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
+		glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
 		droid->render();
 
+		SDL_GL_SwapWindow(window);
 		//Recalculate translations
 		//rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(1.0f, 0.0f, 1.0f));
 		//modelMatrix = translationMatrix * rotationMatrix * scaleMatrix;
@@ -243,9 +254,9 @@ int main(int argc, char* args[])
 	//	{
 	//		currentMesh->render();
 	//	}
-	//	SDL_GL_SwapWindow(window);
+	
 
-	//}
+	}
 
 	//auto iter = meshes.begin();
 	//while (iter != meshes.end())
