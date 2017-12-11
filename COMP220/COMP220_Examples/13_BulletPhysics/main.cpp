@@ -18,7 +18,7 @@ int main(int argc, char* args[])
 
 	//Create a window, note we have to free the pointer returned using the DestroyWindow Function
 	//https://wiki.libsdl.org/SDL_CreateWindow
-	SDL_Window* window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+	SDL_Window* window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 640, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 	//Checks to see if the window has been created, the pointer will have a value of some kind
 	if (window == nullptr)
 	{
@@ -62,7 +62,8 @@ int main(int argc, char* args[])
 
 	GLuint textureID = loadTextureFromFile("GNK_BaseColor.png");
 
-	vec3 trianglePosition = vec3(0.0f,0.0f,0.0f);
+	//change to object instead of trangle
+	vec3 trianglePosition = vec3(0.0f,10.0f,0.0f);
 	vec3 triangleScale = vec3(0.1f, 0.1f, 0.1f);
 	vec3 triangleRotation = vec3(radians(-90.0f), 0.0f, 0.0f);
 
@@ -74,7 +75,7 @@ int main(int argc, char* args[])
 	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
 	// Camera Properties
-	vec3 cameraPosition = vec3(0.0f, 8.0f, -10.0f);
+	vec3 cameraPosition = vec3(0.0f, 15.0f, -12.0f);
 	vec3 cameraTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
 	vec3 cameraDirection = vec3(0.0f);
@@ -89,28 +90,87 @@ int main(int argc, char* args[])
 	mat4 projectionMatrix = perspective(radians(90.0f), float(800 / 600), 0.1f, 100.0f);
 
 	//light
+	vec4 ambientLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	vec3 lightDirection = vec3(0.0f, 0.0f, -1.0f);
 	vec4 diffuseLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	vec4 specularLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	//material
-	vec4 diffuseMaterialColour = vec4(0.8f, 0.8f, 0.8f, 0.1f);
+	vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
+	vec4 diffuseMaterialColour = vec4(0.0f, 0.6f, 0.6f, 0.1f);
+	vec4 specularMaterialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	float specularPower = 25.0f;
 
+	//Colour Buffer Texture
+	GLuint colourBufferID = createTexture(800, 640);
+
+	//Create Depth Buffer (Can only have 1 depth buffer)
+	GLuint depthRenderBufferID;
+	glGenRenderbuffers(1, &depthRenderBufferID);
+	glBindRenderbuffer(GL_RENDERBUFFER, depthRenderBufferID);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, 800, 640);
+
+	//Create framebuffer
+	GLuint frameBufferID;
+	glGenFramebuffers(1, &frameBufferID);
+	glBindFramebuffer(GL_FRAMEBUFFER, frameBufferID);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBufferID);
+	glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, colourBufferID, 0);
+
+	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+	{
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Unable to create frame buffer for post processing","Frame Buffer Error", NULL);
+	}
+
+	//Create screen aligned quad
+	GLfloat screenVerts[] =
+	{
+		-1,-1,
+		1,-1,
+		-1,1,
+		1,1,
+	};
+
+	GLuint screenQuadVBOID;
+	glGenBuffers(1, &screenQuadVBOID);
+	glBindBuffer(GL_ARRAY_BUFFER, screenQuadVBOID);
+	glBufferData(GL_ARRAY_BUFFER, 8 * sizeof(GLfloat), screenVerts, GL_STATIC_DRAW);
+
+	//Generates vertex array objects
+	GLuint screenVAO;
+	glGenVertexArrays(1, &screenVAO);
+	glBindVertexArray(screenVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, screenQuadVBOID);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+
+	//Put post processing shaders here
+	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlackAndWhite.glsl");
+	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
+
+	//He uses texture verts and frags might need to change
 	GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
 
 	static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
 
 	GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
-	GLint currentTimeLocation= glGetUniformLocation(programID, "time");
+	GLint currentTimeLocation = glGetUniformLocation(programID, "time");
 	GLint modelMatrixLocation = glGetUniformLocation(programID, "modelMatrix");
 	GLint viewMatrixLocation = glGetUniformLocation(programID, "viewMatrix");
 	GLint projectionMatrixLocation = glGetUniformLocation(programID, "projectionMatrix");
 	GLint textureLocation = glGetUniformLocation(programID, "baseTexture");
+	GLint cameraPositionLocation = glGetUniformLocation(programID, "cameraPosition");
+
 	GLint lightDirectionLocation = glGetUniformLocation(programID, "lightDirection");
+	GLint ambientLightColourLocation = glGetUniformLocation(programID, "ambientLightColour");
 	GLint diffuseLightColourLocation = glGetUniformLocation(programID, "diffuseLightColour");
+	GLint specularLightColourLocation = glGetUniformLocation(programID, "specularLightColour");
+
+	GLint ambientMaterialColourLocation = glGetUniformLocation(programID, "ambientMaterialColour");
 	GLint diffuseMaterialColourLocation = glGetUniformLocation(programID, "diffuseMaterialColour");
-
-
-	///-----initialization_start-----
+	GLint specularMaterialColourLocation = glGetUniformLocation(programID, "specularMaterialColour");
+	GLint specularPowerLocation = glGetUniformLocation(programID, "specularPower");
 
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
 	btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();
@@ -128,25 +188,38 @@ int main(int argc, char* args[])
 
 	dynamicsWorld->setGravity(btVector3(0, -10, 0));
 
-	///-----initialization_end-----
-
-	//Creates ground shape
-	btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(1.), btScalar(50.)));
+	btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(2.), btScalar(50.)));
 
 	btTransform groundTransform;
 	groundTransform.setIdentity();
-	groundTransform.setOrigin(btVector3(0, -56, 0));
+	groundTransform.setOrigin(btVector3(0, -10, 0));
 
 	btScalar mass(0.);
 	btVector3 localInertia(0, 0, 0);
-	
 	//using motionstate is optional, it provides interpolation capabilities, and only synchronizes 'active' objects
 	btDefaultMotionState* myMotionState = new btDefaultMotionState(groundTransform);
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, groundShape, localInertia);
-	btRigidBody* groundBody = new btRigidBody(rbInfo);
-	
+	btRigidBody* groundRigidBody = new btRigidBody(rbInfo);
+
 	//add the body to the dynamics world
-	dynamicsWorld->addRigidBody(groundBody);
+	dynamicsWorld->addRigidBody(groundRigidBody);
+
+	btCollisionShape* droidCollisionShape = new btBoxShape(btVector3(2, 2, 2));
+
+	/// Create Dynamic Objects
+	btTransform droidTransform;
+	droidTransform.setIdentity();
+	droidTransform.setOrigin(btVector3(trianglePosition.x, trianglePosition.y, trianglePosition.z));
+	btVector3 droidInertia(0, 0, 0);
+	btScalar droidMass(1.f);
+	droidCollisionShape->calculateLocalInertia(droidMass, droidInertia);
+
+	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
+	btDefaultMotionState* droidMotionState = new btDefaultMotionState(droidTransform);
+	btRigidBody::btRigidBodyConstructionInfo droidRbInfo(droidMass, droidMotionState, droidCollisionShape, droidInertia);
+	btRigidBody* droidRigidBody = new btRigidBody(droidRbInfo);
+
+	dynamicsWorld->addRigidBody(droidRigidBody);
 
 	//SDL_ShowCursor(SDL_DISABLE);
 	SDL_SetRelativeMouseMode(SDL_bool(SDL_ENABLE));
@@ -185,7 +258,7 @@ int main(int argc, char* args[])
 				cameraTarget = cameraPosition + CameraDistance * vec3(cos(CameraX), tan(CameraY), sin(CameraX));
 				// Normalised camera direction
 				cameraDirection = normalize(cameraTarget - cameraPosition);
-				
+
 				break;
 
 				//KEYDOWN Message, called when a key has been pressed down
@@ -238,13 +311,31 @@ int main(int argc, char* args[])
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
-		glClearColor(1.0, 0.0, 0.0, 1.0);
+		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
+
+		droidTransform = droidRigidBody->getWorldTransform();
+		btVector3 droidOrigin = droidTransform.getOrigin();
+		btQuaternion droidRotation = droidTransform.getRotation();
+
+		//change to object
+		trianglePosition = vec3(droidOrigin.getX(), droidOrigin.getY(), droidOrigin.getZ());
+
+		translationMatrix = translate(trianglePosition);
+		scaleMatrix = scale(triangleScale);
+		rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+
+		modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
+
+		//glEnable(GL_DEPTH_TEST);
+		//glGenFramebuffers(1, &frameBufferID);
+		glBindFramebuffer(GL_FRAMEBUFFER, frameBufferID);
+		glClearColor(0.0, 0.0, 0.0, 1.0);
 		glClearDepth(1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glActiveTexture(GL_TEXTURE);
+		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textureID);
 
 		glUseProgram(programID);
@@ -254,20 +345,72 @@ int main(int argc, char* args[])
 		glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, value_ptr(modelMatrix));
 		glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 		glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
+
+		glUniform3fv(cameraPositionLocation, 1, value_ptr(cameraPosition));
+
 		glUniform1i(textureLocation, 0);
 
 		glUniform3fv(lightDirectionLocation,1,value_ptr(lightDirection));
+		glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
 		glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
+		glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
+
+		glUniform4fv(ambientMaterialColourLocation, 1, value_ptr(ambientMaterialColour));
 		glUniform4fv(diffuseMaterialColourLocation, 1, value_ptr(diffuseMaterialColour));
+		glUniform4fv(specularMaterialColourLocation, 1, value_ptr(specularMaterialColour));
+		glUniform1f(specularPowerLocation, specularPower);
 
 		// Draw
 		for (Mesh* currentMesh : meshes)
 		{
 			currentMesh->render();
 		}
+
+		glDisable(GL_DEPTH_TEST);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glClearColor(0.0, 0.0, 0.0, 1.0);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		//Bind post processing shaders
+		glUseProgram(postProcessingProgramID);
+		
+		//Activate texture unit 0 for the colour buffer
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, colourBufferID);
+		glUniform1i(texture0Location, 0);
+
+		glBindVertexArray(screenVAO);
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
 		SDL_GL_SwapWindow(window);
 
 	}
+
+	dynamicsWorld->removeRigidBody(droidRigidBody);
+	delete droidCollisionShape;
+	delete droidRigidBody->getMotionState();
+	delete droidRigidBody;
+
+	dynamicsWorld->removeRigidBody(groundRigidBody);
+
+	//delete ground
+	delete groundShape;
+	delete groundRigidBody->getMotionState();
+	delete groundRigidBody;
+
+	//delete dynamics world
+	delete dynamicsWorld;
+
+	//delete solver
+	delete solver;
+
+	//delete broadphase
+	delete overlappingPairCache;
+
+	//delete dispatcher
+	delete dispatcher;
+
+	delete collisionConfiguration;
 
 	auto iter = meshes.begin();
 	while (iter != meshes.end())
@@ -284,24 +427,17 @@ int main(int argc, char* args[])
 		}
 	}
 
-	meshes.clear();
+	glDeleteProgram(postProcessingProgramID);
+	glDeleteVertexArrays(1, &screenVAO);
+	glDeleteBuffers(1, &screenQuadVBOID);
 
+	glDeleteFramebuffers(1, &frameBufferID);
+	glDeleteRenderbuffers(1, &depthRenderBufferID);
+	glDeleteTextures(1, &colourBufferID);
+
+	meshes.clear();
 	glDeleteProgram(programID);
 	glDeleteTextures(1, &textureID);
-
-	//delete dynamics world
-	delete dynamicsWorld;
-
-	//delete solver
-	delete solver;
-
-	//delete broadphase
-	delete overlappingPairCache;
-
-	//delete dispatcher
-	delete dispatcher;
-
-	delete collisionConfiguration;
 
 	//Delete context
 	SDL_GL_DeleteContext(GL_Context);
