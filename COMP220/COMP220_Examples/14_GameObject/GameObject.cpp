@@ -21,7 +21,7 @@ GameObject::~GameObject()
 {
 }
 
-void GameObject::loadMeshesFromFile(const std::string & filename)
+void GameObject::loadMesh(const std::string & filename)
 {
 	loadMeshesFromFile(filename, m_Meshes);
 }

@@ -18,7 +18,7 @@ public:
 	GameObject();
 	~GameObject();
 	
-	void loadMeshesFromFile(const std::string& filename);
+	void loadMesh(const std::string& filename);
 	void loadDiffuseTextureFromFile(const std::string& filename);
 	void loadShaderProgram(const std::string& VertexShaderFilename, const std::string& fragmentShaderFilename);
 

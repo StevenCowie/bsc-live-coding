@@ -57,26 +57,26 @@ int main(int argc, char* args[])
 	//unsigned int numberOfIndices = 0;
 	//loadModelFromFile("Tank1.FBX", vertexbuffer, elementbuffer, numberOfVerts, numberOfIndices);
 
-	std::vector<Mesh*> meshes;
-	loadMeshesFromFile("GNK_Droid.FBX", meshes);
+	//std::vector<Mesh*> meshes;
+	//loadMeshesFromFile("GNK_Droid.FBX", meshes);
 
-	GLuint textureID = loadTextureFromFile("GNK_BaseColor.png");
+	//GLuint textureID = loadTextureFromFile("GNK_BaseColor.png");
 
-	//change to object instead of trangle
-	vec3 trianglePosition = vec3(0.0f,10.0f,0.0f);
-	vec3 triangleScale = vec3(0.1f, 0.1f, 0.1f);
-	vec3 triangleRotation = vec3(radians(-90.0f), 0.0f, 0.0f);
+	////change to object instead of trangle
+	//vec3 trianglePosition = vec3(0.0f,10.0f,0.0f);
+	//vec3 triangleScale = vec3(0.1f, 0.1f, 0.1f);
+	//vec3 triangleRotation = vec3(radians(-90.0f), 0.0f, 0.0f);
 
-	
-	mat4 translationMatrix = translate(trianglePosition);
-	mat4 scaleMatrix = scale(triangleScale);
-	mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+	//
+	//mat4 translationMatrix = translate(trianglePosition);
+	//mat4 scaleMatrix = scale(triangleScale);
+	//mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
 
-	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
+	//mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
 	// Camera Properties
-	vec3 cameraPosition = vec3(0.0f, 15.0f, -12.0f);
-	vec3 cameraTarget = vec3(0.0f, 0.0f, 0.0f);
+	vec3 cameraPosition = vec3(0.0f, -20.0f, -12.0f);
+	vec3 cameraTarget = vec3(0.0f, 5.0f, 0.0f);
 	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
 	vec3 cameraDirection = vec3(0.0f);
 	vec3 FPScameraPos = vec3(0.0f);	
@@ -95,11 +95,35 @@ int main(int argc, char* args[])
 	vec4 diffuseLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	vec4 specularLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	//material
-	vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
-	vec4 diffuseMaterialColour = vec4(0.0f, 0.6f, 0.6f, 0.1f);
-	vec4 specularMaterialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	float specularPower = 25.0f;
+	std::vector<GameObject*> GameObjectList;
+
+	for (int i = 0; i < 5; ++i)
+	{
+		//Create GameObject
+		GameObject * pDroid = new GameObject();
+		pDroid->setRotation(vec3(1.0f, 1.2f, 1.0f));
+		pDroid->setPosition(vec3(0.5f, 0.5f, (float)i));
+		pDroid->setScale(vec3(0.5f, 0.5f, 0.5f));
+		pDroid->loadMesh("GNK_Droid.FBX");
+		pDroid->loadDiffuseTextureFromFile("GNK_BaseColor.png");
+		pDroid->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
+		GameObjectList.push_back(pDroid);
+	};
+
+	GameObject * pDroid = new GameObject();
+	pDroid = new GameObject();
+	pDroid->setPosition(vec3(0.5f, 0.2f, -0.5f));
+	pDroid->setScale(vec3(1.0f, 1.0f, 1.0f));
+	pDroid->loadMesh("Tank1.FBX");
+	pDroid->loadDiffuseTextureFromFile("Tank1DF.png");
+	pDroid->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
+	GameObjectList.push_back(pDroid);
+
+	////material
+	//vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
+	//vec4 diffuseMaterialColour = vec4(0.0f, 0.6f, 0.6f, 0.1f);
+	//vec4 specularMaterialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	//float specularPower = 25.0f;
 
 	//Colour Buffer Texture
 	GLuint colourBufferID = createTexture(800, 640);
@@ -149,12 +173,13 @@ int main(int argc, char* args[])
 	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlackAndWhite.glsl");
 	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
 
-	//He uses texture verts and frags might need to change
-	GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
+	////He uses texture verts and frags might need to change
+	//GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
 
-	static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
+	//static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
 
-	GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
+	//GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
+	/*
 	GLint currentTimeLocation = glGetUniformLocation(programID, "time");
 	GLint modelMatrixLocation = glGetUniformLocation(programID, "modelMatrix");
 	GLint viewMatrixLocation = glGetUniformLocation(programID, "viewMatrix");
@@ -171,8 +196,10 @@ int main(int argc, char* args[])
 	GLint diffuseMaterialColourLocation = glGetUniformLocation(programID, "diffuseMaterialColour");
 	GLint specularMaterialColourLocation = glGetUniformLocation(programID, "specularMaterialColour");
 	GLint specularPowerLocation = glGetUniformLocation(programID, "specularPower");
+	*/
 
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
+	/*
 	btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();
 
 	///use the default collision dispatcher. For parallel processing you can use a diffent dispatcher (see Extras/BulletMultiThreaded)
@@ -220,6 +247,7 @@ int main(int argc, char* args[])
 	btRigidBody* droidRigidBody = new btRigidBody(droidRbInfo);
 
 	dynamicsWorld->addRigidBody(droidRigidBody);
+	*/
 
 	//SDL_ShowCursor(SDL_DISABLE);
 	SDL_SetRelativeMouseMode(SDL_bool(SDL_ENABLE));
@@ -270,61 +298,68 @@ int main(int argc, char* args[])
 				case SDLK_ESCAPE:
 					running = false;
 					break;
-				case SDLK_RIGHT:
-					triangleRotation.y += 0.2f;
-					break;
-				case SDLK_LEFT:
-					triangleRotation.y -= 0.2f;
-					break;
-				case SDLK_UP:
-					trianglePosition.z -= 0.1f;
-					break;
-				case SDLK_DOWN:
-					triangleRotation.z += 0.1f;
-					break;
+				//case SDLK_RIGHT:
+				//	triangleRotation.y += 0.2f;
+				//	break;
+				//case SDLK_LEFT:
+				//	triangleRotation.y -= 0.2f;
+				//	break;
+				//case SDLK_UP:
+				//	trianglePosition.z -= 0.1f;
+				//	break;
+				//case SDLK_DOWN:
+				//	triangleRotation.z += 0.1f;
+				//	break;
 
 
-				case SDLK_w:
-					FPScameraPos = cameraDirection * 0.2f;
-					break;
-				case SDLK_s:
-					FPScameraPos = -cameraDirection * 0.2f;
-					break;
-				case SDLK_a:
-					FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;
-					break;
-				case SDLK_d:
-					FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;
-					break;
+				//case SDLK_w:
+				//	FPScameraPos = cameraDirection * 0.2f;
+				//	break;
+				//case SDLK_s:
+				//	FPScameraPos = -cameraDirection * 0.2f;
+				//	break;
+				//case SDLK_a:
+				//	FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;
+				//	break;
+				//case SDLK_d:
+				//	FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;
+				//	break;
 				}
-				cameraPosition += FPScameraPos;
-				cameraTarget += FPScameraPos;
+				//cameraPosition += FPScameraPos;
+				//cameraTarget += FPScameraPos;
 			}
 		}
 		//Update Game and Draw with OpenGL!!
 
 		//Recalculate translations
-		rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(1.0f, 0.0f, 1.0f));
-		modelMatrix = translationMatrix * rotationMatrix * scaleMatrix;
-		viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
+		//rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(1.0f, 0.0f, 1.0f));
+		//modelMatrix = translationMatrix * rotationMatrix * scaleMatrix;
+		//viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
 
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
-		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
+		//pDroid->update();
 
-		droidTransform = droidRigidBody->getWorldTransform();
-		btVector3 droidOrigin = droidTransform.getOrigin();
-		btQuaternion droidRotation = droidTransform.getRotation();
+		for (GameObject* pObj : GameObjectList)
+		{
+			pObj->update();
+		}
 
-		//change to object
-		trianglePosition = vec3(droidOrigin.getX(), droidOrigin.getY(), droidOrigin.getZ());
+		//dynamicsWorld->stepSimulation(1.f / 60.f, 10);
 
-		translationMatrix = translate(trianglePosition);
-		scaleMatrix = scale(triangleScale);
-		rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+		//droidTransform = droidRigidBody->getWorldTransform();
+		//btVector3 droidOrigin = droidTransform.getOrigin();
+		//btQuaternion droidRotation = droidTransform.getRotation();
 
-		modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
+		////change to object
+		//trianglePosition = vec3(droidOrigin.getX(), droidOrigin.getY(), droidOrigin.getZ());
+
+		//translationMatrix = translate(trianglePosition);
+		//scaleMatrix = scale(triangleScale);
+		//rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+
+		//modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
 		//glEnable(GL_DEPTH_TEST);
 		//glGenFramebuffers(1, &frameBufferID);
@@ -335,36 +370,67 @@ int main(int argc, char* args[])
 
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, textureID);
+		for (GameObject* pObj : GameObjectList)
+		{
+			pObj->prerender();
+			GLuint currentProgramID = pObj->getShaderProgramID();
 
-		glUseProgram(programID);
+			//Retrieve the shader values
+			//Take Lighting across too
+			GLint viewMatrixLocation = glGetUniformLocation(currentProgramID, "viewMatrix");
+			GLint projectionMatrixLocation = glGetUniformLocation(currentProgramID, "projectionMatrix");
 
-		glUniform4fv(fragColourLocation, 1, fragColour);
-		glUniform1f(currentTimeLocation, (float)(currentTicks) / 1000.0f);
-		glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, value_ptr(modelMatrix));
-		glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
-		glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
+			//Send shader values
+			glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
+			glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
 
-		glUniform3fv(cameraPositionLocation, 1, value_ptr(cameraPosition));
+			pObj->render();
+		}
 
-		glUniform1i(textureLocation, 0);
+		//pDroid->prerender();
+		//GLuint currentProgramID = pDroid->getShaderProgramID();
 
-		glUniform3fv(lightDirectionLocation,1,value_ptr(lightDirection));
-		glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
-		glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
-		glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
+		////Retrieve the shader values
+		////Take Lighting across too
+		//GLint viewMatrixLocation = glGetUniformLocation(currentProgramID, "viewMatrix");
+		//GLint projectionMatrixLocation = glGetUniformLocation(currentProgramID, "projectionMatrix");
 
-		glUniform4fv(ambientMaterialColourLocation, 1, value_ptr(ambientMaterialColour));
-		glUniform4fv(diffuseMaterialColourLocation, 1, value_ptr(diffuseMaterialColour));
-		glUniform4fv(specularMaterialColourLocation, 1, value_ptr(specularMaterialColour));
-		glUniform1f(specularPowerLocation, specularPower);
+		////Send shader values
+		//glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
+		//glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
+
+		//pDroid->render();
+
+		//glActiveTexture(GL_TEXTURE0);
+		//glBindTexture(GL_TEXTURE_2D, textureID);
+
+		//glUseProgram(programID);
+
+		//glUniform4fv(fragColourLocation, 1, fragColour);
+		//glUniform1f(currentTimeLocation, (float)(currentTicks) / 1000.0f);
+		//glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, value_ptr(modelMatrix));
+		//glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
+		//glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
+
+		//glUniform3fv(cameraPositionLocation, 1, value_ptr(cameraPosition));
+
+		//glUniform1i(textureLocation, 0);
+
+		//glUniform3fv(lightDirectionLocation,1,value_ptr(lightDirection));
+		//glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
+		//glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
+		//glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
+
+		//glUniform4fv(ambientMaterialColourLocation, 1, value_ptr(ambientMaterialColour));
+		//glUniform4fv(diffuseMaterialColourLocation, 1, value_ptr(diffuseMaterialColour));
+		//glUniform4fv(specularMaterialColourLocation, 1, value_ptr(specularMaterialColour));
+		//glUniform1f(specularPowerLocation, specularPower);
 
 		// Draw
-		for (Mesh* currentMesh : meshes)
-		{
-			currentMesh->render();
-		}
+		//for (Mesh* currentMesh : meshes)
+		//{
+		//	currentMesh->render();
+		//}
 
 		glDisable(GL_DEPTH_TEST);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -386,7 +452,7 @@ int main(int argc, char* args[])
 
 	}
 
-	dynamicsWorld->removeRigidBody(droidRigidBody);
+	/*dynamicsWorld->removeRigidBody(droidRigidBody);
 	delete droidCollisionShape;
 	delete droidRigidBody->getMotionState();
 	delete droidRigidBody;
@@ -410,20 +476,32 @@ int main(int argc, char* args[])
 	//delete dispatcher
 	delete dispatcher;
 
-	delete collisionConfiguration;
+	delete collisionConfiguration;*/
 
-	auto iter = meshes.begin();
-	while (iter != meshes.end())
+	//auto iter = meshes.begin();
+	//while (iter != meshes.end())
+	//{
+	//	if ((*iter))
+	//	{
+	//		(*iter)->destroy();
+	//		delete (*iter);
+	//		iter = meshes.erase(iter);
+	//	}
+	//	else
+	//	{
+	//		iter++;
+	//	}
+	//}
+
+
+	auto GameObjectIter = GameObjectList.begin();
+	while (GameObjectIter != GameObjectList.end())
 	{
-		if ((*iter))
+		if ((*GameObjectIter))
 		{
-			(*iter)->destroy();
-			delete (*iter);
-			iter = meshes.erase(iter);
-		}
-		else
-		{
-			iter++;
+			(*GameObjectIter)->destroy();
+			delete (*GameObjectIter);
+			GameObjectIter = GameObjectList.erase(GameObjectIter);
 		}
 	}
 
@@ -435,9 +513,9 @@ int main(int argc, char* args[])
 	glDeleteRenderbuffers(1, &depthRenderBufferID);
 	glDeleteTextures(1, &colourBufferID);
 
-	meshes.clear();
-	glDeleteProgram(programID);
-	glDeleteTextures(1, &textureID);
+	//meshes.clear();
+	//glDeleteProgram(programID);
+	//glDeleteTextures(1, &textureID);
 
 	//Delete context
 	SDL_GL_DeleteContext(GL_Context);
