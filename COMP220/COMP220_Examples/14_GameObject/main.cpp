@@ -52,27 +52,21 @@ int main(int argc, char* args[])
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, (char*)glewGetErrorString(glewError), "GLEW Init Failed", NULL);
 	}
 
+	std::vector<Mesh*> meshes;
+	loadMeshesFromFile("GNK_Droid.FBX", meshes);
 
-	//unsigned int numberOfVerts = 0;
-	//unsigned int numberOfIndices = 0;
-	//loadModelFromFile("Tank1.FBX", vertexbuffer, elementbuffer, numberOfVerts, numberOfIndices);
+	GLuint textureID = loadTextureFromFile("GNK_BaseColor.png");
 
-	//std::vector<Mesh*> meshes;
-	//loadMeshesFromFile("GNK_Droid.FBX", meshes);
-
-	//GLuint textureID = loadTextureFromFile("GNK_BaseColor.png");
-
-	////change to object instead of trangle
-	//vec3 trianglePosition = vec3(0.0f,10.0f,0.0f);
-	//vec3 triangleScale = vec3(0.1f, 0.1f, 0.1f);
-	//vec3 triangleRotation = vec3(radians(-90.0f), 0.0f, 0.0f);
+	vec3 trianglePosition = vec3(0.0f,10.0f,0.0f);
+	vec3 triangleScale = vec3(0.1f, 0.1f, 0.1f);
+	vec3 triangleRotation = vec3(radians(-90.0f), 0.0f, 0.0f);
 
 	//
-	//mat4 translationMatrix = translate(trianglePosition);
-	//mat4 scaleMatrix = scale(triangleScale);
-	//mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+	mat4 translationMatrix = translate(trianglePosition);
+	mat4 scaleMatrix = scale(triangleScale);
+	mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
 
-	//mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
+	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
 	// Camera Properties
 	vec3 cameraPosition = vec3(0.0f, -20.0f, -12.0f);
@@ -103,27 +97,27 @@ int main(int argc, char* args[])
 		GameObject * pDroid = new GameObject();
 		pDroid->setRotation(vec3(1.0f, 1.2f, 1.0f));
 		pDroid->setPosition(vec3(0.5f, 0.5f, (float)i));
-		pDroid->setScale(vec3(0.5f, 0.5f, 0.5f));
+		pDroid->setScale(vec3(0.2f, 0.2f, 0.2f));
 		pDroid->loadMesh("GNK_Droid.FBX");
 		pDroid->loadDiffuseTextureFromFile("GNK_BaseColor.png");
 		pDroid->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
 		GameObjectList.push_back(pDroid);
 	};
 
-	GameObject * pDroid = new GameObject();
-	pDroid = new GameObject();
-	pDroid->setPosition(vec3(0.5f, 0.2f, -0.5f));
-	pDroid->setScale(vec3(1.0f, 1.0f, 1.0f));
-	pDroid->loadMesh("Tank1.FBX");
-	pDroid->loadDiffuseTextureFromFile("Tank1DF.png");
-	pDroid->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
-	GameObjectList.push_back(pDroid);
+	GameObject * pTank = new GameObject();
+	pTank = new GameObject();
+	pTank->setPosition(vec3(0.5f, 0.2f, -0.5f));
+	pTank->setScale(vec3(0.2f, 0.2f, 0.2f));
+	pTank->loadMesh("Tank1.FBX");
+	pTank->loadDiffuseTextureFromFile("Tank1DF.png");
+	pTank->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
+	GameObjectList.push_back(pTank);
 
-	////material
-	//vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
-	//vec4 diffuseMaterialColour = vec4(0.0f, 0.6f, 0.6f, 0.1f);
-	//vec4 specularMaterialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	//float specularPower = 25.0f;
+	//material
+	vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
+	vec4 diffuseMaterialColour = vec4(0.0f, 0.6f, 0.6f, 0.1f);
+	vec4 specularMaterialColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	float specularPower = 25.0f;
 
 	//Colour Buffer Texture
 	GLuint colourBufferID = createTexture(800, 640);
@@ -170,16 +164,16 @@ int main(int argc, char* args[])
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	//Put post processing shaders here
-	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlackAndWhite.glsl");
+	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postTextureFrag.glsl");
 	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
 
-	////He uses texture verts and frags might need to change
-	//GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
+	//He uses texture verts and frags might need to change
+	GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
 
-	//static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
+	static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
 
-	//GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
-	/*
+	GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
+	
 	GLint currentTimeLocation = glGetUniformLocation(programID, "time");
 	GLint modelMatrixLocation = glGetUniformLocation(programID, "modelMatrix");
 	GLint viewMatrixLocation = glGetUniformLocation(programID, "viewMatrix");
@@ -196,10 +190,10 @@ int main(int argc, char* args[])
 	GLint diffuseMaterialColourLocation = glGetUniformLocation(programID, "diffuseMaterialColour");
 	GLint specularMaterialColourLocation = glGetUniformLocation(programID, "specularMaterialColour");
 	GLint specularPowerLocation = glGetUniformLocation(programID, "specularPower");
-	*/
+	
 
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
-	/*
+	
 	btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();
 
 	///use the default collision dispatcher. For parallel processing you can use a diffent dispatcher (see Extras/BulletMultiThreaded)
@@ -241,13 +235,42 @@ int main(int argc, char* args[])
 	btScalar droidMass(1.f);
 	droidCollisionShape->calculateLocalInertia(droidMass, droidInertia);
 
+	btCollisionShape* tankCollisionShape = new btBoxShape(btVector3(2, 2, 2));
+	/// Create Dynamic Objects
+	btTransform tankTransform;
+	tankTransform.setIdentity();
+	btVector3 tankInertia(0, 0, 0);
+	btScalar tankMass(1.f);
+	tankCollisionShape->calculateLocalInertia(tankMass, tankInertia);
+
 	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 	btDefaultMotionState* droidMotionState = new btDefaultMotionState(droidTransform);
 	btRigidBody::btRigidBodyConstructionInfo droidRbInfo(droidMass, droidMotionState, droidCollisionShape, droidInertia);
 	btRigidBody* droidRigidBody = new btRigidBody(droidRbInfo);
 
 	dynamicsWorld->addRigidBody(droidRigidBody);
-	*/
+	
+	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
+	btDefaultMotionState* tankMotionState = new btDefaultMotionState(tankTransform);
+	btRigidBody::btRigidBodyConstructionInfo tankRbInfo(tankMass, tankMotionState, tankCollisionShape, tankInertia);
+	btRigidBody* tankRigidBody = new btRigidBody(tankRbInfo);
+
+	dynamicsWorld->addRigidBody(tankRigidBody);
+
+	int invertGravity = -10;
+
+	//Force Movement
+	btVector3 tankForceJump = btVector3(0, 10, 0);
+	btVector3 tankForceLeft = btVector3(-5, 0, 0);
+	btVector3 tankForceRight = btVector3(5, 0, 0);
+	btVector3 tankForceForward = btVector3(0, 0, 5);
+	btVector3 tankForceBackward = btVector3(0, 0, -5);
+
+	//Impulse Movement
+	btVector3 tankImpulse = btVector3(0, 0, 0);
+
+	//Torque Movement
+	btVector3 tankTorque = btVector3(0, 0, 0);
 
 	//SDL_ShowCursor(SDL_DISABLE);
 	SDL_SetRelativeMouseMode(SDL_bool(SDL_ENABLE));
@@ -298,19 +321,29 @@ int main(int argc, char* args[])
 				case SDLK_ESCAPE:
 					running = false;
 					break;
-				//case SDLK_RIGHT:
-				//	triangleRotation.y += 0.2f;
-				//	break;
-				//case SDLK_LEFT:
-				//	triangleRotation.y -= 0.2f;
-				//	break;
-				//case SDLK_UP:
-				//	trianglePosition.z -= 0.1f;
-				//	break;
-				//case SDLK_DOWN:
-				//	triangleRotation.z += 0.1f;
-				//	break;
+				case SDLK_RIGHT:
+					tankRigidBody->applyCentralForce(tankForceRight);
+					break;
+				case SDLK_LEFT:
+					tankRigidBody->applyCentralForce(tankForceRight);
+					break;
+				case SDLK_UP:
+					tankRigidBody->applyCentralForce(tankForceRight);
+					break;
+				case SDLK_DOWN:
+					tankRigidBody->applyCentralForce(tankForceRight);
+					break;
 
+
+				case SDLK_SPACE:
+					tankRigidBody->applyCentralForce(tankForceJump);
+					break;
+
+				//Inverts Gravity for game idea, probably not enough time to do
+				case SDLK_LSHIFT:
+					invertGravity *= -1;
+					dynamicsWorld->setGravity(btVector3(0, invertGravity, 0));
+					break;
 
 				case SDLK_w:
 					FPScameraPos = cameraDirection * 0.2f;
@@ -332,34 +365,33 @@ int main(int argc, char* args[])
 		//Update Game and Draw with OpenGL!!
 
 		//Recalculate translations
-		//rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(1.0f, 0.0f, 1.0f));
-		//modelMatrix = translationMatrix * rotationMatrix * scaleMatrix;
-		//viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
+		rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(1.0f, 0.0f, 1.0f));
+		modelMatrix = translationMatrix * rotationMatrix * scaleMatrix;
+		viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
 
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
-		//pDroid->update();
 
 		for (GameObject* pObj : GameObjectList)
 		{
 			pObj->update();
 		}
 
-		//dynamicsWorld->stepSimulation(1.f / 60.f, 10);
+		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
 
-		//droidTransform = droidRigidBody->getWorldTransform();
-		//btVector3 droidOrigin = droidTransform.getOrigin();
-		//btQuaternion droidRotation = droidTransform.getRotation();
+		droidTransform = droidRigidBody->getWorldTransform();
+		btVector3 droidOrigin = droidTransform.getOrigin();
+		btQuaternion droidRotation = droidTransform.getRotation();
 
-		////change to object
-		//trianglePosition = vec3(droidOrigin.getX(), droidOrigin.getY(), droidOrigin.getZ());
+		//change to object
+		trianglePosition = vec3(droidOrigin.getX(), droidOrigin.getY(), droidOrigin.getZ());
 
-		//translationMatrix = translate(trianglePosition);
-		//scaleMatrix = scale(triangleScale);
-		//rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
+		translationMatrix = translate(trianglePosition);
+		scaleMatrix = scale(triangleScale);
+		rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
 
-		//modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
+		modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
 		//glEnable(GL_DEPTH_TEST);
 		//glGenFramebuffers(1, &frameBufferID);
@@ -379,10 +411,19 @@ int main(int argc, char* args[])
 			//Take Lighting across too
 			GLint viewMatrixLocation = glGetUniformLocation(currentProgramID, "viewMatrix");
 			GLint projectionMatrixLocation = glGetUniformLocation(currentProgramID, "projectionMatrix");
+			GLint lightDirectionLocation = glGetUniformLocation(currentProgramID, "lightDirection");
+			GLint ambientLightColourLocation = glGetUniformLocation(currentProgramID, "ambientLightColour");
+			GLint diffuseLightColourLocation = glGetUniformLocation(currentProgramID, "diffuseLightColour");
+			GLint specularLightColourLocation = glGetUniformLocation(currentProgramID, "specularLightColour");
 
 			//Send shader values
 			glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 			glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
+
+			glUniform3fv(lightDirectionLocation,1,value_ptr(lightDirection));
+			glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
+			glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
+			glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
 
 			pObj->render();
 		}
@@ -452,10 +493,15 @@ int main(int argc, char* args[])
 
 	}
 
-	/*dynamicsWorld->removeRigidBody(droidRigidBody);
+	dynamicsWorld->removeRigidBody(droidRigidBody);
 	delete droidCollisionShape;
 	delete droidRigidBody->getMotionState();
 	delete droidRigidBody;
+
+	dynamicsWorld->removeRigidBody(tankRigidBody);
+	delete tankCollisionShape;
+	delete tankRigidBody->getMotionState();
+	delete tankRigidBody;
 
 	dynamicsWorld->removeRigidBody(groundRigidBody);
 
@@ -476,7 +522,7 @@ int main(int argc, char* args[])
 	//delete dispatcher
 	delete dispatcher;
 
-	delete collisionConfiguration;*/
+	delete collisionConfiguration;
 
 	//auto iter = meshes.begin();
 	//while (iter != meshes.end())
