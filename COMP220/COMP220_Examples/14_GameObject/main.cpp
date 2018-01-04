@@ -312,21 +312,21 @@ int main(int argc, char* args[])
 				//	break;
 
 
-				//case SDLK_w:
-				//	FPScameraPos = cameraDirection * 0.2f;
-				//	break;
-				//case SDLK_s:
-				//	FPScameraPos = -cameraDirection * 0.2f;
-				//	break;
-				//case SDLK_a:
-				//	FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;
-				//	break;
-				//case SDLK_d:
-				//	FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;
-				//	break;
+				case SDLK_w:
+					FPScameraPos = cameraDirection * 0.2f;
+					break;
+				case SDLK_s:
+					FPScameraPos = -cameraDirection * 0.2f;
+					break;
+				case SDLK_a:
+					FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;
+					break;
+				case SDLK_d:
+					FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;
+					break;
 				}
-				//cameraPosition += FPScameraPos;
-				//cameraTarget += FPScameraPos;
+				cameraPosition += FPScameraPos;
+				cameraTarget += FPScameraPos;
 			}
 		}
 		//Update Game and Draw with OpenGL!!
