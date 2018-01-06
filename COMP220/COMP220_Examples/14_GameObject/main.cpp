@@ -113,6 +113,9 @@ int main(int argc, char* args[])
 	pTank->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
 	GameObjectList.push_back(pTank);
 
+	//Creates camera
+	Camera * camera = new Camera();
+
 	//material
 	vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
 	vec4 diffuseMaterialColour = vec4(0.0f, 0.6f, 0.6f, 0.1f);
@@ -301,8 +304,9 @@ int main(int argc, char* args[])
 
 			case SDL_MOUSEMOTION:
 				// Get Mouse Motion of X and Y
-				CameraX += ev.motion.xrel / 200.0f;
-				CameraY += -ev.motion.yrel / 200.0f;
+				/*CameraX += ev.motion.xrel / 200.0f;
+				CameraY += -ev.motion.yrel / 200.0f;*/
+				camera->Mouse(ev.motion.xrel, -ev.motion.yrel);
 				// Limit camera range
 				if (CameraY > 150.0f) CameraY = 150.0f; else if (CameraY < -150.0f) CameraY = -150.0f;
 				// Calculate camera target using CameraX and CameraY
@@ -346,20 +350,26 @@ int main(int argc, char* args[])
 					break;
 
 				case SDLK_w:
-					FPScameraPos = cameraDirection * 0.2f;
+					camera->Forward();
+					//FPScameraPos = cameraDirection * 0.2f;
 					break;
 				case SDLK_s:
-					FPScameraPos = -cameraDirection * 0.2f;
+					camera->Backward();
+					/*FPScameraPos = -cameraDirection * 0.2f;*/
 					break;
 				case SDLK_a:
-					FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;
+					camera->Left();
+					/*FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;*/
 					break;
 				case SDLK_d:
-					FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;
+					camera->Right();
+					/*FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;*/
 					break;
 				}
-				cameraPosition += FPScameraPos;
-				cameraTarget += FPScameraPos;
+				//cameraPosition += FPScameraPos;
+				//cameraTarget += FPScameraPos;
+
+				camera->FPSUpdate();
 			}
 		}
 		//Update Game and Draw with OpenGL!!
@@ -372,6 +382,8 @@ int main(int argc, char* args[])
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
+		//Updates Camera
+		camera->Update();
 
 		for (GameObject* pObj : GameObjectList)
 		{
@@ -424,12 +436,9 @@ int main(int argc, char* args[])
 			glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
 			glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
 			glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
-
+			camera->Render(currentProgramID);
 			pObj->render();
 		}
-
-		//pDroid->prerender();
-		//GLuint currentProgramID = pDroid->getShaderProgramID();
 
 		////Retrieve the shader values
 		////Take Lighting across too
@@ -440,7 +449,6 @@ int main(int argc, char* args[])
 		//glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 		//glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
 
-		//pDroid->render();
 
 		//glActiveTexture(GL_TEXTURE0);
 		//glBindTexture(GL_TEXTURE_2D, textureID);
@@ -550,6 +558,8 @@ int main(int argc, char* args[])
 			GameObjectIter = GameObjectList.erase(GameObjectIter);
 		}
 	}
+
+	delete camera;
 
 	glDeleteProgram(postProcessingProgramID);
 	glDeleteVertexArrays(1, &screenVAO);

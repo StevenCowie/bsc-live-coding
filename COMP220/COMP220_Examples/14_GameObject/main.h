@@ -21,5 +21,6 @@
 #include "Model.h"
 
 #include "GameObject.h"
+#include "Camera.h"
 
 using namespace glm;

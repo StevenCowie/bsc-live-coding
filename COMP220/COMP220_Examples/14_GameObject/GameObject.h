@@ -108,18 +108,19 @@ public:
 		return m_SpecularMaterialColour;
 	};
 
-	//Gets specular power
+	//Sets specular power
 	void setSpecularPower(const float power)
 	{
 		m_SpecularPower = power;
 	};
 
-	//Sets specular power
+	//Gets specular power
 	const float getSpecularPower()
 	{
 		return m_SpecularPower;
 	};
 
+	//Gets ShaderProgramID
 	const GLuint getShaderProgramID()
 	{
 		return m_ShaderProgramID;
