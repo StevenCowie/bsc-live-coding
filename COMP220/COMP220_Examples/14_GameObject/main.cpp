@@ -52,34 +52,6 @@ int main(int argc, char* args[])
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, (char*)glewGetErrorString(glewError), "GLEW Init Failed", NULL);
 	}
 
-	std::vector<Mesh*> meshes;
-	loadMeshesFromFile("GNK_Droid.FBX", meshes);
-
-	GLuint textureID = loadTextureFromFile("GNK_BaseColor.png");
-
-	vec3 trianglePosition = vec3(0.0f,10.0f,0.0f);
-	vec3 triangleScale = vec3(0.1f, 0.1f, 0.1f);
-	vec3 triangleRotation = vec3(radians(-90.0f), 0.0f, 0.0f);
-
-	//
-	mat4 translationMatrix = translate(trianglePosition);
-	mat4 scaleMatrix = scale(triangleScale);
-	mat4 rotationMatrix= rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
-
-	mat4 modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
-
-	// Camera Properties
-	vec3 cameraPosition = vec3(0.0f, -20.0f, -12.0f);
-	vec3 cameraTarget = vec3(0.0f, 5.0f, 0.0f);
-	vec3 cameraUp = vec3(0.0f, 1.0f, 0.0f);
-	vec3 cameraDirection = vec3(0.0f);
-	vec3 FPScameraPos = vec3(0.0f);	
-	float CameraX = 0.0f;
-	float CameraY = 0.0f;
-	float CameraDistance = (float)(cameraTarget - cameraPosition).length();
-	
-
-	mat4 viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
 
 	mat4 projectionMatrix = perspective(radians(90.0f), float(800 / 600), 0.1f, 100.0f);
 
@@ -115,6 +87,9 @@ int main(int argc, char* args[])
 
 	//Creates camera
 	Camera * camera = new Camera();
+
+	//Creates raycast
+	//Raycast * raycast = new Raycast();
 
 	//material
 	vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
@@ -230,13 +205,13 @@ int main(int argc, char* args[])
 
 	btCollisionShape* droidCollisionShape = new btBoxShape(btVector3(2, 2, 2));
 
-	/// Create Dynamic Objects
-	btTransform droidTransform;
-	droidTransform.setIdentity();
-	droidTransform.setOrigin(btVector3(trianglePosition.x, trianglePosition.y, trianglePosition.z));
-	btVector3 droidInertia(0, 0, 0);
-	btScalar droidMass(1.f);
-	droidCollisionShape->calculateLocalInertia(droidMass, droidInertia);
+	///// Create Dynamic Objects
+	//btTransform droidTransform;
+	//droidTransform.setIdentity();
+	//droidTransform.setOrigin(btVector3(trianglePosition.x, trianglePosition.y, trianglePosition.z));
+	//btVector3 droidInertia(0, 0, 0);
+	//btScalar droidMass(1.f);
+	//droidCollisionShape->calculateLocalInertia(droidMass, droidInertia);
 
 	btCollisionShape* tankCollisionShape = new btBoxShape(btVector3(2, 2, 2));
 	/// Create Dynamic Objects
@@ -247,11 +222,11 @@ int main(int argc, char* args[])
 	tankCollisionShape->calculateLocalInertia(tankMass, tankInertia);
 
 	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
-	btDefaultMotionState* droidMotionState = new btDefaultMotionState(droidTransform);
-	btRigidBody::btRigidBodyConstructionInfo droidRbInfo(droidMass, droidMotionState, droidCollisionShape, droidInertia);
-	btRigidBody* droidRigidBody = new btRigidBody(droidRbInfo);
+	//btDefaultMotionState* droidMotionState = new btDefaultMotionState(droidTransform);
+	//btRigidBody::btRigidBodyConstructionInfo droidRbInfo(droidMass, droidMotionState, droidCollisionShape, droidInertia);
+	//btRigidBody* droidRigidBody = new btRigidBody(droidRbInfo);
 
-	dynamicsWorld->addRigidBody(droidRigidBody);
+	//dynamicsWorld->addRigidBody(droidRigidBody);
 	
 	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 	btDefaultMotionState* tankMotionState = new btDefaultMotionState(tankTransform);
@@ -302,18 +277,21 @@ int main(int argc, char* args[])
 				running = false;
 				break;
 
+			//case SDL_MOUSEBUTTONDOWN:
+			//	// Check button code of the pressed mouse button
+			//	switch (ev.button.button)
+			//	{
+			//	case SDL_BUTTON_LEFT:
+			//	{
+			//		// Fire raycast
+			//		raycast->update(camera, dynamicsWorld);
+			//		break;
+			//	}
+			//	}
+
 			case SDL_MOUSEMOTION:
 				// Get Mouse Motion of X and Y
-				/*CameraX += ev.motion.xrel / 200.0f;
-				CameraY += -ev.motion.yrel / 200.0f;*/
 				camera->Mouse(ev.motion.xrel, -ev.motion.yrel);
-				// Limit camera range
-				if (CameraY > 150.0f) CameraY = 150.0f; else if (CameraY < -150.0f) CameraY = -150.0f;
-				// Calculate camera target using CameraX and CameraY
-				cameraTarget = cameraPosition + CameraDistance * vec3(cos(CameraX), tan(CameraY), sin(CameraX));
-				// Normalised camera direction
-				cameraDirection = normalize(cameraTarget - cameraPosition);
-
 				break;
 
 				//KEYDOWN Message, called when a key has been pressed down
@@ -374,11 +352,6 @@ int main(int argc, char* args[])
 		}
 		//Update Game and Draw with OpenGL!!
 
-		//Recalculate translations
-		rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(1.0f, 0.0f, 1.0f));
-		modelMatrix = translationMatrix * rotationMatrix * scaleMatrix;
-		viewMatrix = lookAt(cameraPosition, cameraTarget, cameraUp);
-
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
 
@@ -392,18 +365,11 @@ int main(int argc, char* args[])
 
 		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
 
-		droidTransform = droidRigidBody->getWorldTransform();
-		btVector3 droidOrigin = droidTransform.getOrigin();
-		btQuaternion droidRotation = droidTransform.getRotation();
+		//droidTransform = droidRigidBody->getWorldTransform();
+		//btVector3 droidOrigin = droidTransform.getOrigin();
+		//btQuaternion droidRotation = droidTransform.getRotation();
 
-		//change to object
-		trianglePosition = vec3(droidOrigin.getX(), droidOrigin.getY(), droidOrigin.getZ());
 
-		translationMatrix = translate(trianglePosition);
-		scaleMatrix = scale(triangleScale);
-		rotationMatrix = rotate(triangleRotation.x, vec3(1.0f, 0.0f, 0.0f))*rotate(triangleRotation.y, vec3(0.0f, 1.0f, 0.0f))*rotate(triangleRotation.z, vec3(0.0f, 0.0f, 1.0f));
-
-		modelMatrix = translationMatrix*rotationMatrix*scaleMatrix;
 
 		//glEnable(GL_DEPTH_TEST);
 		//glGenFramebuffers(1, &frameBufferID);
@@ -429,7 +395,7 @@ int main(int argc, char* args[])
 			GLint specularLightColourLocation = glGetUniformLocation(currentProgramID, "specularLightColour");
 
 			//Send shader values
-			glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
+			//glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
 			glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
 
 			glUniform3fv(lightDirectionLocation,1,value_ptr(lightDirection));
@@ -501,10 +467,10 @@ int main(int argc, char* args[])
 
 	}
 
-	dynamicsWorld->removeRigidBody(droidRigidBody);
-	delete droidCollisionShape;
-	delete droidRigidBody->getMotionState();
-	delete droidRigidBody;
+	//dynamicsWorld->removeRigidBody(droidRigidBody);
+	//delete droidCollisionShape;
+	//delete droidRigidBody->getMotionState();
+	//delete droidRigidBody;
 
 	dynamicsWorld->removeRigidBody(tankRigidBody);
 	delete tankCollisionShape;
@@ -559,7 +525,11 @@ int main(int argc, char* args[])
 		}
 	}
 
+	//Deletes Camera
 	delete camera;
+
+	//Delete Raycast
+	//delete raycast;
 
 	glDeleteProgram(postProcessingProgramID);
 	glDeleteVertexArrays(1, &screenVAO);
@@ -568,10 +538,6 @@ int main(int argc, char* args[])
 	glDeleteFramebuffers(1, &frameBufferID);
 	glDeleteRenderbuffers(1, &depthRenderBufferID);
 	glDeleteTextures(1, &colourBufferID);
-
-	//meshes.clear();
-	//glDeleteProgram(programID);
-	//glDeleteTextures(1, &textureID);
 
 	//Delete context
 	SDL_GL_DeleteContext(GL_Context);
