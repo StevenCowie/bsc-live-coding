@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BCD11FCB-33EA-F842-88F3-E47E4152D8D0}</ProjectGuid>
+    <ProjectGuid>{A13454F3-29F9-1D41-86BD-6F51B30F212C}</ProjectGuid>
     <RootNamespace>Test_SharedMemoryPhysicsClient</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

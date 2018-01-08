@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{439FC9B2-8B89-824B-82C0-7AB39CA3E260}</ProjectGuid>
+    <ProjectGuid>{4FFDBB78-AE96-8D43-B8D7-6411D9F195C8}</ProjectGuid>
     <RootNamespace>App_HelloWorld</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

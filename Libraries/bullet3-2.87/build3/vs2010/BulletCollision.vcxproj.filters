@@ -2,25 +2,25 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{B2FC7AC0-AFF5-A944-98DD-B394CA6F8F46}</UniqueIdentifier>
+      <UniqueIdentifier>{6C1068BC-2978-8848-A5E3-DE54A0431012}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletCollision">
-      <UniqueIdentifier>{E4E4EADE-5AB8-F542-B4C3-5F8E57C26ADB}</UniqueIdentifier>
+      <UniqueIdentifier>{984CB5CE-3800-C848-B811-C44AD9A50BD5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletCollision\BroadphaseCollision">
-      <UniqueIdentifier>{2AE9AB12-DFFF-6547-B406-23F00E007D39}</UniqueIdentifier>
+      <UniqueIdentifier>{DE143BEE-338B-E643-AB61-E006AEB99DDE}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletCollision\CollisionDispatch">
-      <UniqueIdentifier>{2332B301-BCED-6945-8AC3-5D2FEFC79B40}</UniqueIdentifier>
+      <UniqueIdentifier>{9DEAF8FE-450A-924A-A9CF-69D1C7E4EF95}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletCollision\CollisionShapes">
-      <UniqueIdentifier>{37D48584-BD71-BA4B-93E9-887B7EC21648}</UniqueIdentifier>
+      <UniqueIdentifier>{05EE682A-6D80-BF4F-A4C1-9C947926C2CA}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletCollision\Gimpact">
-      <UniqueIdentifier>{8C94CD34-8E4B-1D4A-B17E-C2EBCA42A8FB}</UniqueIdentifier>
+      <UniqueIdentifier>{1880F08F-6B39-9C49-89DB-CBC635A1449E}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletCollision\NarrowPhaseCollision">
-      <UniqueIdentifier>{C42D4929-06EA-E142-A8F0-453C9A5DD582}</UniqueIdentifier>
+      <UniqueIdentifier>{0AF37A20-893D-1A4D-8A15-188FF78A8B42}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

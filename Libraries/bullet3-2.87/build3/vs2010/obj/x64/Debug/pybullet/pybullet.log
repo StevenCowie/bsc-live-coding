@@ -1,56 +1,54 @@
 ﻿  glew.c
   pybullet.c
-  PhysicsClientUDP.cpp
-  PhysicsClientUDP_C_API.cpp
+  InProcessExampleBrowser.cpp
+  LoadMeshFromCollada.cpp
+  BulletMJCFImporter.cpp
+  b3ImportMeshUtility.cpp
+  LoadMeshFromObj.cpp
+  Wavefront2GLInstanceGraphicsShape.cpp
+  BulletUrdfImporter.cpp
+  MyMultiBodyCreator.cpp
+D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(92): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\ExampleBrowser\InProcessExampleBrowser.cpp)
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy' (compiling source file ..\..\examples\ExampleBrowser\InProcessExampleBrowser.cpp)
+  URDF2Bullet.cpp
+  UrdfParser.cpp
+  urdfStringSplit.cpp
+  b3PosixThreadSupport.cpp
+  b3ThreadSupportInterface.cpp
+  b3Win32ThreadSupport.cpp
+  SimpleCamera.cpp
+  IKTrajectoryHelper.cpp
+  InProcessMemory.cpp
+  PhysicsClient.cpp
+  PhysicsClientC_API.cpp
+  PhysicsClientSharedMemory.cpp
+  PhysicsClientSharedMemory_C_API.cpp
   PhysicsClientTCP.cpp
   PhysicsClientTCP_C_API.cpp
-  IKTrajectoryHelper.cpp
-  InProcessExampleBrowser.cpp
+  PhysicsClientUDP.cpp
+  PhysicsClientUDP_C_API.cpp
+  PhysicsDirect.cpp
+  PhysicsDirectC_API.cpp
+  PhysicsServer.cpp
+  PhysicsServerCommandProcessor.cpp
+  PhysicsServerExample.cpp
+  PhysicsServerExampleBullet2.cpp
+  PhysicsServerSharedMemory.cpp
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(56): warning C4005: 'UINT8_MAX': macro redefinition (compiling source file ..\..\examples\SharedMemory\PhysicsClientTCP.cpp)
   d:\bsc-live-coding\libraries\bullet3-2.87\examples\thirdpartylibs\clsocket\src\Host.h(108): note: see previous definition of 'UINT8_MAX' (compiling source file ..\..\examples\SharedMemory\PhysicsClientTCP.cpp)
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(57): warning C4005: 'UINT16_MAX': macro redefinition (compiling source file ..\..\examples\SharedMemory\PhysicsClientTCP.cpp)
   d:\bsc-live-coding\libraries\bullet3-2.87\examples\thirdpartylibs\clsocket\src\Host.h(111): note: see previous definition of 'UINT16_MAX' (compiling source file ..\..\examples\SharedMemory\PhysicsClientTCP.cpp)
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include\stdint.h(58): warning C4005: 'UINT32_MAX': macro redefinition (compiling source file ..\..\examples\SharedMemory\PhysicsClientTCP.cpp)
   d:\bsc-live-coding\libraries\bullet3-2.87\examples\thirdpartylibs\clsocket\src\Host.h(114): note: see previous definition of 'UINT32_MAX' (compiling source file ..\..\examples\SharedMemory\PhysicsClientTCP.cpp)
+  PosixSharedMemory.cpp
+  SharedMemoryInProcessPhysicsC_API.cpp
 ..\..\examples\SharedMemory\PhysicsClientUDP.cpp(175): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type '::size_t'
   ..\..\examples\SharedMemory\PhysicsClientUDP.cpp(175): note: consider using '%zu' in the format string
 ..\..\examples\SharedMemory\PhysicsClientUDP.cpp(230): warning C4477: 'printf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type '::size_t'
   ..\..\examples\SharedMemory\PhysicsClientUDP.cpp(230): note: consider using '%zu' in the format string
-D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(92): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\ExampleBrowser\InProcessExampleBrowser.cpp)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy' (compiling source file ..\..\examples\ExampleBrowser\InProcessExampleBrowser.cpp)
   TinyRendererVisualShapeConverter.cpp
-  SimpleCamera.cpp
-  geometry.cpp
-  model.cpp
-  tgaimage.cpp
-  our_gl.cpp
-  TinyRenderer.cpp
-  InProcessMemory.cpp
-  PhysicsClient.cpp
-  PhysicsServer.cpp
-  PhysicsServerExample.cpp
-  PhysicsServerExampleBullet2.cpp
-  SharedMemoryInProcessPhysicsC_API.cpp
-..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(575): warning C4838: conversion from 'btScalar' to 'float' requires a narrowing conversion
-..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(728): warning C4838: conversion from 'const double' to 'float' requires a narrowing conversion
-  PhysicsServerSharedMemory.cpp
-  PhysicsDirect.cpp
-  PhysicsDirectC_API.cpp
-  PhysicsServerCommandProcessor.cpp
-..\..\examples\SharedMemory\PhysicsServerExample.cpp(2422): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-..\..\examples\SharedMemory\PhysicsServerExample.cpp(2426): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-  b3PluginManager.cpp
-  PhysicsClientSharedMemory.cpp
-  PhysicsClientSharedMemory_C_API.cpp
-  PhysicsClientC_API.cpp
   Win32SharedMemory.cpp
-  PosixSharedMemory.cpp
-  b3ResourcePath.cpp
-  RobotLoggingUtil.cpp
-  tinystr.cpp
-  tinyxml.cpp
-  tinyxmlerror.cpp
-  tinyxmlparser.cpp
+  b3PluginManager.cpp
   tiny_obj_loader.cpp
   stb_image.cpp
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(222): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
@@ -63,10 +61,10 @@ D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(328): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
+  tinystr.cpp
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(514): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(552): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(570): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
-  LoadMeshFromCollada.cpp
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(1480): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(1509): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(1527): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
@@ -119,24 +117,26 @@ D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(4015): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(4220): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
-  LoadMeshFromObj.cpp
-  Wavefront2GLInstanceGraphicsShape.cpp
+  tinyxml.cpp
+  tinyxmlerror.cpp
+  tinyxmlparser.cpp
+  TinyRenderer.cpp
+  geometry.cpp
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(401): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
+  model.cpp
+  our_gl.cpp
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(651): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(667): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(723): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
-  BulletMJCFImporter.cpp
-  BulletUrdfImporter.cpp
-  MyMultiBodyCreator.cpp
-  URDF2Bullet.cpp
-  UrdfParser.cpp
-  urdfStringSplit.cpp
-  b3ImportMeshUtility.cpp
-  b3PosixThreadSupport.cpp
-  b3Win32ThreadSupport.cpp
-  b3ThreadSupportInterface.cpp
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2422): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2426): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(575): warning C4838: conversion from 'btScalar' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(728): warning C4838: conversion from 'const double' to 'float' requires a narrowing conversion
+  tgaimage.cpp
+  RobotLoggingUtil.cpp
+  b3ResourcePath.cpp
 LINK : fatal error LNK1104: cannot open file 'python27_d.lib'

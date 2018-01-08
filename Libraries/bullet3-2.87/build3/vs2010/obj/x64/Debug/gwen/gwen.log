@@ -1,14 +1,6 @@
 ﻿  glew.c
   Anim.cpp
   BaseRender.cpp
-  DragAndDrop.cpp
-  events.cpp
-  Gwen.cpp
-  Hook.cpp
-  inputhandler.cpp
-  Skin.cpp
-  ToolTip.cpp
-  Utility.cpp
   Base.cpp
   Button.cpp
   Canvas.cpp
@@ -17,13 +9,16 @@
   ColorPicker.cpp
   ComboBox.cpp
   CrossSplitter.cpp
+  FileOpen.cpp
+  FileSave.cpp
+  Query.cpp
   DockBase.cpp
   DockedTabControl.cpp
   Dragger.cpp
   GroupBox.cpp
+  HSVColorPicker.cpp
   HorizontalScrollBar.cpp
   HorizontalSlider.cpp
-  HSVColorPicker.cpp
   ImagePanel.cpp
   Label.cpp
   LabelClickable.cpp
@@ -57,12 +52,17 @@
   VerticalScrollBar.cpp
   VerticalSlider.cpp
   WindowControl.cpp
-  FileOpen.cpp
-  FileSave.cpp
-  Query.cpp
+  DragAndDrop.cpp
+  Gwen.cpp
+  Hook.cpp
   Null.cpp
   Windows.cpp
   OpenGL_DebugFont.cpp
+  Skin.cpp
+  ToolTip.cpp
+  Utility.cpp
+  events.cpp
+  inputhandler.cpp
 Null.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
 Query.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
 ImagePanel.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library

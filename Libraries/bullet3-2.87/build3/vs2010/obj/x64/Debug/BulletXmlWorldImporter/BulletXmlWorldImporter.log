@@ -1,4 +1,5 @@
-﻿  btBulletXmlWorldImporter.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\BulletXmlWorldImporter\) contains files shared from another project (BulletXmlWorldImporter.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  btBulletXmlWorldImporter.cpp
   string_split.cpp
   tinystr.cpp
   tinyxml.cpp

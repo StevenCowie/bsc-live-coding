@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C97CACB2-05F5-B840-BDFD-223135CDE13A}</ProjectGuid>
+    <ProjectGuid>{8A937258-C44C-3342-B9BC-302E25199116}</ProjectGuid>
     <RootNamespace>BulletFileLoader</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

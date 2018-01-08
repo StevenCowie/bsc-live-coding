@@ -2,16 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="test">
-      <UniqueIdentifier>{F7D97E28-586F-0342-AFD0-1E37776A737E}</UniqueIdentifier>
+      <UniqueIdentifier>{F1EDDBAC-E417-6043-879F-48AEE09BFA54}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\enet">
-      <UniqueIdentifier>{E40F8326-306C-FE42-A18C-76B8597CFCA2}</UniqueIdentifier>
+      <UniqueIdentifier>{7845C9EB-A5F7-2046-89A0-F2325B1983D1}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\enet\chat">
-      <UniqueIdentifier>{BAB4FE4D-1774-5246-95C7-3A89B3A3AD61}</UniqueIdentifier>
+      <UniqueIdentifier>{950C4E09-E6A4-D345-815F-A33296533D02}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\enet\chat\server">
-      <UniqueIdentifier>{C521A43C-D6C0-414A-86FC-4407CE8BE20E}</UniqueIdentifier>
+      <UniqueIdentifier>{B91E0A91-3925-FC43-AFC8-23DC05982F8C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

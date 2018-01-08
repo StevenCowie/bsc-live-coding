@@ -2,11 +2,11 @@
   TestList.cpp
   Utils.cpp
   Test_3x3getRot.cpp
-..\..\test\Bullet2\Source\Utils.cpp(23): warning C4068: unknown pragma
   Test_3x3mulM.cpp
   Test_3x3mulM1M2.cpp
   Test_3x3mulMV.cpp
   Test_3x3mulVM.cpp
+..\..\test\Bullet2\Source\Utils.cpp(23): warning C4068: unknown pragma
   Test_3x3setRot.cpp
   Test_3x3timesTranspose.cpp
   Test_3x3transpose.cpp

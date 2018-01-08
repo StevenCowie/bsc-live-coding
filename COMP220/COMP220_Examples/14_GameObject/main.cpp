@@ -142,7 +142,7 @@ int main(int argc, char* args[])
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	//Put post processing shaders here
-	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postTextureFrag.glsl");
+	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlueAndRed.glsl");
 	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
 
 	//He uses texture verts and frags might need to change
@@ -239,11 +239,11 @@ int main(int argc, char* args[])
 	int invertGravity = -10;
 
 	//Force Movement
-	btVector3 tankForceJump = btVector3(0, 10, 0);
-	btVector3 tankForceLeft = btVector3(-5, 0, 0);
-	btVector3 tankForceRight = btVector3(5, 0, 0);
-	btVector3 tankForceForward = btVector3(0, 0, 5);
-	btVector3 tankForceBackward = btVector3(0, 0, -5);
+	btVector3 tankForceJump = btVector3(0, 20, 0);
+	btVector3 tankForceLeft = btVector3(-20, 0, 0);
+	btVector3 tankForceRight = btVector3(20, 0, 0);
+	btVector3 tankForceForward = btVector3(0, 0, 20);
+	btVector3 tankForceBackward = btVector3(0, 0, -20);
 
 	//Impulse Movement
 	btVector3 tankImpulse = btVector3(4, 0, 0);
@@ -304,16 +304,16 @@ int main(int argc, char* args[])
 					running = false;
 					break;
 				case SDLK_RIGHT:
-					tankRigidBody->applyCentralForce(tankForceRight);
+					tankRigidBody->applyCentralForce(tankForceLeft);
 					break;
 				case SDLK_LEFT:
 					tankRigidBody->applyCentralForce(tankForceRight);
 					break;
 				case SDLK_UP:
-					tankRigidBody->applyCentralForce(tankForceRight);
+					tankRigidBody->applyCentralForce(tankForceForward);
 					break;
 				case SDLK_DOWN:
-					tankRigidBody->applyCentralForce(tankForceRight);
+					tankRigidBody->applyCentralForce(tankForceBackward);
 					break;
 
 
@@ -372,12 +372,6 @@ int main(int argc, char* args[])
 		{
 			pObj->update();
 		}
-
-
-
-		//droidTransform = droidRigidBody->getWorldTransform();
-		//btVector3 droidOrigin = droidTransform.getOrigin();
-		//btQuaternion droidRotation = droidTransform.getRotation();
 
 
 

@@ -2,37 +2,37 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{C978281C-3878-2842-BBFF-E65B938AC75E}</UniqueIdentifier>
+      <UniqueIdentifier>{336EF330-F02F-C84D-92D2-0AB125BB3345}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\clew">
-      <UniqueIdentifier>{8ED4473A-6EA6-DA45-AE2B-68A8A66194BD}</UniqueIdentifier>
+      <UniqueIdentifier>{F4FAD61E-FD38-5B4D-B305-60E2064BF183}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples">
-      <UniqueIdentifier>{58311962-2E9F-3241-AFCD-88606DB47637}</UniqueIdentifier>
+      <UniqueIdentifier>{4DC85254-50DB-3941-9FAD-B4C0DC827753}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs">
-      <UniqueIdentifier>{9EA208EA-A497-3B4D-9FC3-B2C3C3E865D7}</UniqueIdentifier>
+      <UniqueIdentifier>{807C94DD-5594-6B40-86FF-BF2A4BB1E31D}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs\minizip">
-      <UniqueIdentifier>{DDF642F5-FA2F-A14B-8640-819A1E968450}</UniqueIdentifier>
+      <UniqueIdentifier>{F4F57F3F-AB22-1046-B5B6-EADF0A82E64B}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs\zlib">
-      <UniqueIdentifier>{BA800E28-6233-4546-903C-B02127330154}</UniqueIdentifier>
+      <UniqueIdentifier>{4454C69C-7A4A-564C-8B99-1C7747B97608}</UniqueIdentifier>
     </Filter>
     <Filter Include="test">
-      <UniqueIdentifier>{3A5DC603-1264-6744-8E7C-C01851553C78}</UniqueIdentifier>
+      <UniqueIdentifier>{B4D17050-EE8C-084D-B23E-511B99536130}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\TestBullet3OpenCL">
-      <UniqueIdentifier>{98643132-4DCC-3442-84FD-170CEE8A65D7}</UniqueIdentifier>
+      <UniqueIdentifier>{1E78AFAE-22A9-654C-83A3-6D0409E6F674}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\OpenCL">
-      <UniqueIdentifier>{EC8B28CA-B121-CF4A-A909-7D3C33365CBB}</UniqueIdentifier>
+      <UniqueIdentifier>{E7AEFBBB-9D04-8B43-B02D-5C01F81FA203}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\OpenCL\BasicInitialize">
-      <UniqueIdentifier>{1594FCA1-2BE2-9647-B377-D84592866809}</UniqueIdentifier>
+      <UniqueIdentifier>{7A5F944C-5A03-3841-A203-0B8FCD232D7C}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\OpenCL\AllBullet3Kernels">
-      <UniqueIdentifier>{B943DD64-7EB1-4046-B0B7-2614E9B36D41}</UniqueIdentifier>
+      <UniqueIdentifier>{26EB2E95-E28D-A14B-8160-5D6E93FC3462}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

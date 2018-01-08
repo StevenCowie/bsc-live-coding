@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{038DBF56-0589-0B4C-AD39-F0331EB7ECCE}</UniqueIdentifier>
+      <UniqueIdentifier>{F417864E-ED0A-D94E-8BDA-964D64BE2FB5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\LinearMath">
-      <UniqueIdentifier>{E9786AFD-D4B7-E243-B50E-6241AA8F5F45}</UniqueIdentifier>
+      <UniqueIdentifier>{1AB5D1E8-4B93-484A-A166-7D98AA95E389}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

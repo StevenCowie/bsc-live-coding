@@ -2,16 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Extras">
-      <UniqueIdentifier>{C18F9461-0280-714B-A2E5-3100F8FF3330}</UniqueIdentifier>
+      <UniqueIdentifier>{CD4FAEB8-DFB2-0E46-BEA2-37E4AF24552A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Extras\VHACD">
-      <UniqueIdentifier>{397F1501-C134-3741-8408-0D121E2834F5}</UniqueIdentifier>
+      <UniqueIdentifier>{681144D6-BE6F-914F-A0B7-AF3612130579}</UniqueIdentifier>
     </Filter>
     <Filter Include="Extras\VHACD\test">
-      <UniqueIdentifier>{7193850E-BB2F-7A4D-8124-C0A1823E9B33}</UniqueIdentifier>
+      <UniqueIdentifier>{977155DB-D432-6B4A-AA75-38DE0419D694}</UniqueIdentifier>
     </Filter>
     <Filter Include="Extras\VHACD\test\src">
-      <UniqueIdentifier>{F058A94B-FEF9-5A4B-9448-86E82D699198}</UniqueIdentifier>
+      <UniqueIdentifier>{21EB9170-D141-DB40-92BF-6E08A8678D6F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

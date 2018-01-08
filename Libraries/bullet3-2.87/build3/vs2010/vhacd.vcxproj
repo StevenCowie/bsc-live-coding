@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{27E60684-7538-794E-B250-F8EDB39F1C01}</ProjectGuid>
+    <ProjectGuid>{F93F6DD7-5AB5-5246-A1AE-C00830594E60}</ProjectGuid>
     <RootNamespace>vhacd</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

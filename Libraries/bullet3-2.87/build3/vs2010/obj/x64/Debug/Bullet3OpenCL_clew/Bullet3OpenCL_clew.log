@@ -1,4 +1,5 @@
-﻿  clew.c
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\Bullet3OpenCL_clew\) contains files shared from another project (Bullet3OpenCL_clew.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  clew.c
   b3GpuGridBroadphase.cpp
   b3GpuParallelLinearBvh.cpp
   b3GpuParallelLinearBvhBroadphase.cpp

@@ -1,4 +1,5 @@
-﻿  vrSyncPlugin.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\pybullet_vrSyncPlugin\) contains files shared from another project (pybullet_vrSyncPlugin.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  vrSyncPlugin.cpp
   PhysicsClient.cpp
   PhysicsClientSharedMemory.cpp
   PhysicsClientSharedMemory_C_API.cpp

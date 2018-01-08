@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{014BBB96-E881-7448-89E2-8D11DD789144}</ProjectGuid>
+    <ProjectGuid>{CA816D68-0C46-D149-A9B3-2DD0C2637704}</ProjectGuid>
     <RootNamespace>gwen</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

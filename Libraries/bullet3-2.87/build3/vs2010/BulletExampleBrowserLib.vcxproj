@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{29FF9877-209A-2A42-B09B-28DF9B5B432B}</ProjectGuid>
+    <ProjectGuid>{00672068-503D-B245-9B91-400C52E93C30}</ProjectGuid>
     <RootNamespace>BulletExampleBrowserLib</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

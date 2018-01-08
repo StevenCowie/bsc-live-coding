@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{21DFEEF5-ED87-744C-9897-E36739C08182}</ProjectGuid>
+    <ProjectGuid>{883FC33B-9436-A545-839C-D78FE47C952B}</ProjectGuid>
     <RootNamespace>OpenGL_Window</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

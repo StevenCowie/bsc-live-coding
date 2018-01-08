@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B3A60F13-0BF1-B54A-9AE3-6007DF510E1C}</ProjectGuid>
+    <ProjectGuid>{A0055DA3-4A3B-F24C-B1B3-99AA64EC2D92}</ProjectGuid>
     <RootNamespace>App_PhysicsServerTCP</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

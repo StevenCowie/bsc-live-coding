@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="test">
-      <UniqueIdentifier>{A08DE3A0-B527-744C-A3A1-7889EBAF6D64}</UniqueIdentifier>
+      <UniqueIdentifier>{A9205C89-69D5-E34C-9AF5-D09A19379535}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\clsocket">
-      <UniqueIdentifier>{288CDF91-0BC0-5A46-B1D1-E0FA88A83A65}</UniqueIdentifier>
+      <UniqueIdentifier>{EEB6EB5E-2B98-A745-95A3-965799028279}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

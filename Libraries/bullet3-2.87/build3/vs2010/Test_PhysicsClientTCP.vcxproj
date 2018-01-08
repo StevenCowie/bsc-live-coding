@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{958F7201-AEDF-C243-B340-2387D1E1F329}</ProjectGuid>
+    <ProjectGuid>{7AFAAEB4-102D-9B4D-ADC3-E2291EE5FAA5}</ProjectGuid>
     <RootNamespace>Test_PhysicsClientTCP</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

@@ -2,10 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{A173B8DA-A8B0-1C4A-973B-F85E8B8A1FBE}</UniqueIdentifier>
+      <UniqueIdentifier>{40B7EF98-D465-A24D-A4CF-A5D19344C279}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3Geometry">
-      <UniqueIdentifier>{6AFABACA-3E0A-A04B-94CA-0786DE677652}</UniqueIdentifier>
+      <UniqueIdentifier>{A339249D-A3DD-8049-8E59-1D989382A337}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

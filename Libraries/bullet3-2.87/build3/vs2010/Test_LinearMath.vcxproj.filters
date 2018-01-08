@@ -2,16 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="test">
-      <UniqueIdentifier>{D87AA29A-5156-484D-9345-48DA8382FE82}</UniqueIdentifier>
+      <UniqueIdentifier>{56AAE673-F656-4641-8689-47D9274C1D3A}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\Bullet2">
-      <UniqueIdentifier>{244C7FFA-28F3-3E48-9059-EF2EE09FB900}</UniqueIdentifier>
+      <UniqueIdentifier>{821AA180-6318-C645-B24D-FC87F6614863}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\Bullet2\Source">
-      <UniqueIdentifier>{3D35D6BD-44D3-8541-8145-A217DA5DC4D9}</UniqueIdentifier>
+      <UniqueIdentifier>{7F92C8E3-CECC-6141-A062-F33A2D7E402A}</UniqueIdentifier>
     </Filter>
     <Filter Include="test\Bullet2\Source\Tests">
-      <UniqueIdentifier>{B93BE9CB-5240-C64F-825C-3FB916F84B98}</UniqueIdentifier>
+      <UniqueIdentifier>{6B34C4C0-6444-0641-A259-1D334960D065}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

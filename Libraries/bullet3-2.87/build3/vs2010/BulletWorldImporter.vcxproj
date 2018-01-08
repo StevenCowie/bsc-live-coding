@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9C091348-1A75-F642-9D2B-60DC89880EE5}</ProjectGuid>
+    <ProjectGuid>{91D0C43B-18AC-0A4B-898D-1775BB35DF9E}</ProjectGuid>
     <RootNamespace>BulletWorldImporter</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

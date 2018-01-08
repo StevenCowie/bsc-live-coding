@@ -2,61 +2,61 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="examples">
-      <UniqueIdentifier>{8C6EBAB7-E278-074F-811E-726312B86CD9}</UniqueIdentifier>
+      <UniqueIdentifier>{EB8C3434-87EB-8646-B048-2B8098D1D602}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs">
-      <UniqueIdentifier>{A32F1A9A-FC1B-564A-8062-66C05E54FE17}</UniqueIdentifier>
+      <UniqueIdentifier>{4846EB14-28F2-314E-8853-AC69F8092DA4}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs\Glew">
-      <UniqueIdentifier>{3656654A-C374-1B45-B36B-BBE9357BB976}</UniqueIdentifier>
+      <UniqueIdentifier>{CD31311C-18FE-9543-A599-9BDEAA1EF771}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\SharedMemory">
-      <UniqueIdentifier>{2BC7B54F-E0AD-4B47-92E2-F53270B03FB3}</UniqueIdentifier>
+      <UniqueIdentifier>{221D82A6-EBBA-B840-AFEC-2D15B835F3D9}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\pybullet">
-      <UniqueIdentifier>{FF7FBF74-818D-0946-9D36-C64CCA82EC0B}</UniqueIdentifier>
+      <UniqueIdentifier>{06B8B821-17AF-CF41-B1DA-ECBFD84F3727}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ExampleBrowser">
-      <UniqueIdentifier>{D058C7A7-AD34-5A45-A57B-EAC1266698F4}</UniqueIdentifier>
+      <UniqueIdentifier>{A005AD97-2004-8E40-AA39-C9FB348C0BEF}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\OpenGLWindow">
-      <UniqueIdentifier>{32076B88-4273-074B-99BD-24055196011C}</UniqueIdentifier>
+      <UniqueIdentifier>{2889E8AB-BFAA-6E43-ACE6-A2A168A4C68A}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\TinyRenderer">
-      <UniqueIdentifier>{82EB9B26-B556-5F45-AB23-5D02CC8C6A7E}</UniqueIdentifier>
+      <UniqueIdentifier>{FC0CC350-BBB6-B24A-BDB1-23C67D097E0B}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Utils">
-      <UniqueIdentifier>{906F101E-866C-2040-9136-9D75EBB17F93}</UniqueIdentifier>
+      <UniqueIdentifier>{6F780D20-7BF9-614D-8B7F-BF91EC13E1B6}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs\tinyxml">
-      <UniqueIdentifier>{DD002CBB-157C-764A-86AF-5F77AB52F505}</UniqueIdentifier>
+      <UniqueIdentifier>{723840AA-E37B-F141-9F53-997EAF7CBE8B}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs\Wavefront">
-      <UniqueIdentifier>{D12EA97B-1E0B-C54A-9B2A-5512EED0016D}</UniqueIdentifier>
+      <UniqueIdentifier>{0C471912-ABCD-8A46-9956-EAFD0F4024EC}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs\stb_image">
-      <UniqueIdentifier>{BD42F505-150C-8D42-AB2F-9C631F5738E3}</UniqueIdentifier>
+      <UniqueIdentifier>{D4F9FC90-457E-104E-AD17-38C2F244960C}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Importers">
-      <UniqueIdentifier>{5352E71C-4093-F94A-A1FF-254057211122}</UniqueIdentifier>
+      <UniqueIdentifier>{B6500AAE-AC0E-9A4B-86D7-AE714F599C20}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Importers\ImportColladaDemo">
-      <UniqueIdentifier>{B72FE94E-F067-8240-973F-F97884399DD0}</UniqueIdentifier>
+      <UniqueIdentifier>{CCE4D1F0-FC86-B446-9079-5FAA3B411D0A}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Importers\ImportObjDemo">
-      <UniqueIdentifier>{A39FF785-ACB2-AC47-978A-6B60018DA6D2}</UniqueIdentifier>
+      <UniqueIdentifier>{7D2D9F71-CA82-1B45-9E42-92B644FB0137}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Importers\ImportMJCFDemo">
-      <UniqueIdentifier>{516A8A2C-03D8-5C49-B847-E0031064D5F2}</UniqueIdentifier>
+      <UniqueIdentifier>{6D56EE9B-7760-834F-BE61-F7517E5DD09D}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Importers\ImportURDFDemo">
-      <UniqueIdentifier>{202FB868-0CB7-A84D-B775-D55FED794748}</UniqueIdentifier>
+      <UniqueIdentifier>{DEC16245-AC45-1841-B0AE-35BE02CAB221}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Importers\ImportMeshUtility">
-      <UniqueIdentifier>{91123A6D-3441-EC44-8E42-63104F59BF45}</UniqueIdentifier>
+      <UniqueIdentifier>{C1DC0043-821B-7E44-9C1E-B6EBF4AA0EC4}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\MultiThreading">
-      <UniqueIdentifier>{E93F7EEA-C179-D140-AF17-2C31F3AA3E58}</UniqueIdentifier>
+      <UniqueIdentifier>{2AD26000-817C-C54C-9E36-054402A0575E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿  EchoServer.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\Test_clsocket_EchoServer\) contains files shared from another project (Test_clsocket_EchoServer.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  EchoServer.cpp
 d:\bsc-live-coding\libraries\bullet3-2.87\examples\thirdpartylibs\clsocket\src\SimpleSocket.h(463): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um\winsock2.h(1848): note: see declaration of 'inet_ntoa'
 d:\bsc-live-coding\libraries\bullet3-2.87\examples\thirdpartylibs\clsocket\src\SimpleSocket.h(475): warning C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings

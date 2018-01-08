@@ -1,4 +1,5 @@
-﻿  clew.c
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\App_BulletExampleBrowser\) contains files shared from another project (App_BulletExampleBrowser.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  clew.c
   glew.c
   main.cpp
   ExampleEntries.cpp
@@ -6,20 +7,18 @@
   geometry.cpp
   model.cpp
   tgaimage.cpp
-D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(92): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\ExampleBrowser\main.cpp)
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy' (compiling source file ..\..\examples\ExampleBrowser\main.cpp)
   our_gl.cpp
   TinyRenderer.cpp
   IKTrajectoryHelper.cpp
   PhysicsClientC_API.cpp
+D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(92): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details. (compiling source file ..\..\examples\ExampleBrowser\main.cpp)
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(136): note: see declaration of 'strcpy' (compiling source file ..\..\examples\ExampleBrowser\main.cpp)
   PhysicsServerExample.cpp
   PhysicsServerExampleBullet2.cpp
   PhysicsClientExample.cpp
   PhysicsServer.cpp
   PhysicsServerSharedMemory.cpp
   PhysicsClientSharedMemory.cpp
-..\..\examples\SharedMemory\PhysicsServerExample.cpp(2422): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-..\..\examples\SharedMemory\PhysicsServerExample.cpp(2426): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
   PhysicsClientSharedMemory_C_API.cpp
   PhysicsClientSharedMemory2.cpp
   PhysicsClientSharedMemory2_C_API.cpp
@@ -37,25 +36,27 @@ D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(
   b3PluginManager.cpp
   TinyRendererVisualShapeConverter.cpp
   MultiThreadingExample.cpp
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2422): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2426): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
   b3PosixThreadSupport.cpp
   b3Win32ThreadSupport.cpp
-..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(575): warning C4838: conversion from 'btScalar' to 'float' requires a narrowing conversion
   b3ThreadSupportInterface.cpp
-..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(728): warning C4838: conversion from 'const double' to 'float' requires a narrowing conversion
   InverseDynamicsExample.cpp
   b3RobotSimulatorClientAPI.cpp
   BasicExample.cpp
   Dof6ConstraintTutorial.cpp
-..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(228): warning C4477: 'sprintf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type '::size_t'
-  ..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(228): note: consider using '%zu' in the format string
-..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(234): warning C4477: 'sprintf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type '::size_t'
-  ..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(234): note: consider using '%zu' in the format string
   Tutorial.cpp
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(575): warning C4838: conversion from 'btScalar' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(728): warning C4838: conversion from 'const double' to 'float' requires a narrowing conversion
   Bridge.cpp
   Chain.cpp
   InclinedPlane.cpp
   MultiPendulum.cpp
   MultipleBoxes.cpp
+..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(228): warning C4477: 'sprintf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type '::size_t'
+  ..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(228): note: consider using '%zu' in the format string
+..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(234): warning C4477: 'sprintf' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 1 has type '::size_t'
+  ..\..\examples\InverseDynamics\InverseDynamicsExample.cpp(234): note: consider using '%zu' in the format string
   NewtonsCradle.cpp
   NewtonsRopeCradle.cpp
   RigidBodyFromObj.cpp
@@ -69,12 +70,12 @@ D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3Common/b3CommandLineArgs.h(
   GripperGraspExample.cpp
   KukaGraspExample.cpp
   R2D2GraspExample.cpp
-d:\bsc-live-coding\libraries\bullet3-2.87\examples\evolution\NN3DWalkersTimeWarpBase.h(792): warning C4018: '>': signed/unsigned mismatch (compiling source file ..\..\examples\Evolution\NN3DWalkers.cpp)
-d:\bsc-live-coding\libraries\bullet3-2.87\examples\evolution\NN3DWalkersTimeWarpBase.h(809): warning C4018: '>': signed/unsigned mismatch (compiling source file ..\..\examples\Evolution\NN3DWalkers.cpp)
   Bullet2CollisionSdk.cpp
   RealTimeBullet3CollisionSdk.cpp
   BenchmarkDemo.cpp
   CommonRigidBodyMTBase.cpp
+d:\bsc-live-coding\libraries\bullet3-2.87\examples\evolution\NN3DWalkersTimeWarpBase.h(792): warning C4018: '>': signed/unsigned mismatch (compiling source file ..\..\examples\Evolution\NN3DWalkers.cpp)
+d:\bsc-live-coding\libraries\bullet3-2.87\examples\evolution\NN3DWalkersTimeWarpBase.h(809): warning C4018: '>': signed/unsigned mismatch (compiling source file ..\..\examples\Evolution\NN3DWalkers.cpp)
   MultiThreadedDemo.cpp
   ForkLiftDemo.cpp
   BspConverter.cpp
@@ -201,25 +202,25 @@ d:\bsc-live-coding\libraries\bullet3-2.87\examples\evolution\NN3DWalkersTimeWarp
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(4220): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
   tiny_obj_loader.cpp
-..\..\examples\MultiBody\MultiBodyConstraintFeedback.cpp(323): warning C4838: conversion from 'const btScalar' to 'float' requires a narrowing conversion
-..\..\examples\MultiBody\InvertedPendulumPDControl.cpp(271): warning C4838: conversion from 'const btScalar' to 'float' requires a narrowing conversion
   tinystr.cpp
+  tinyxml.cpp
+  tinyxmlerror.cpp
+..\..\examples\MultiBody\MultiBodyConstraintFeedback.cpp(323): warning C4838: conversion from 'const btScalar' to 'float' requires a narrowing conversion
+  tinyxmlparser.cpp
+  Jacobian.cpp
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(401): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
-  tinyxml.cpp
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(651): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(667): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
+  LinearR2.cpp
 ..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(723): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
-  tinyxmlerror.cpp
-  tinyxmlparser.cpp
-  Jacobian.cpp
-  LinearR2.cpp
   LinearR3.cpp
   LinearR4.cpp
   MatrixRmn.cpp
+..\..\examples\MultiBody\InvertedPendulumPDControl.cpp(271): warning C4838: conversion from 'const btScalar' to 'float' requires a narrowing conversion
   Misc.cpp
   Node.cpp
   Tree.cpp
@@ -228,10 +229,10 @@ d:\bsc-live-coding\libraries\bullet3-2.87\examples\evolution\NN3DWalkersTimeWarp
   PairBench.cpp
   GpuConvexScene.cpp
   GpuRigidBodyDemo.cpp
-d:\bsc-live-coding\libraries\bullet3-2.87\examples\opencl\rigidbody\GpuRigidBodyDemoInternalData.h(20): warning C4099: 'b3DynamicBvhBroadphase': type name first seen using 'struct' now seen using 'class' (compiling source file ..\..\examples\OpenCL\rigidbody\GpuConvexScene.cpp)
-  D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3OpenCL/RigidBody/b3GpuRigidBodyPipeline.h(35): note: see declaration of 'b3DynamicBvhBroadphase' (compiling source file ..\..\examples\OpenCL\rigidbody\GpuConvexScene.cpp)
 d:\bsc-live-coding\libraries\bullet3-2.87\examples\opencl\rigidbody\GpuRigidBodyDemoInternalData.h(20): warning C4099: 'b3DynamicBvhBroadphase': type name first seen using 'struct' now seen using 'class' (compiling source file ..\..\examples\OpenCL\rigidbody\GpuRigidBodyDemo.cpp)
   D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3OpenCL/RigidBody/b3GpuRigidBodyPipeline.h(35): note: see declaration of 'b3DynamicBvhBroadphase' (compiling source file ..\..\examples\OpenCL\rigidbody\GpuRigidBodyDemo.cpp)
+d:\bsc-live-coding\libraries\bullet3-2.87\examples\opencl\rigidbody\GpuRigidBodyDemoInternalData.h(20): warning C4099: 'b3DynamicBvhBroadphase': type name first seen using 'struct' now seen using 'class' (compiling source file ..\..\examples\OpenCL\rigidbody\GpuConvexScene.cpp)
+  D:\bsc-live-coding\Libraries\bullet3-2.87\src\Bullet3OpenCL/RigidBody/b3GpuRigidBodyPipeline.h(35): note: see declaration of 'b3DynamicBvhBroadphase' (compiling source file ..\..\examples\OpenCL\rigidbody\GpuConvexScene.cpp)
      Creating library ..\..\bin\App_BulletExampleBrowser_vs2010_x64_debug.lib and object ..\..\bin\App_BulletExampleBrowser_vs2010_x64_debug.exp
   App_BulletExampleBrowser.vcxproj -> D:\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\App_BulletExampleBrowser_vs2010_x64_debug.exe
   App_BulletExampleBrowser.vcxproj -> ..\..\bin\App_BulletExampleBrowser_vs2010_x64_debug.pdb (Partial PDB)

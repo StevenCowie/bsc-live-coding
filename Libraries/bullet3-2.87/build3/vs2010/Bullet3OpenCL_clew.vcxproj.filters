@@ -2,46 +2,46 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{7CCB3E4C-7D27-514B-AD96-3A9E72656AF1}</UniqueIdentifier>
+      <UniqueIdentifier>{92F721EA-8D20-6247-9B46-AD5DFC546B16}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\clew">
-      <UniqueIdentifier>{54BF5E3E-4E29-CB41-B8E4-ED41DAB62E42}</UniqueIdentifier>
+      <UniqueIdentifier>{52B2710A-4745-474B-9BC7-81C0995159C1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL">
-      <UniqueIdentifier>{2478C8D7-6FB8-BB45-BCF3-D6BE32784871}</UniqueIdentifier>
+      <UniqueIdentifier>{03A1D2A4-55DA-3241-94A5-F1D6754EF79B}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\BroadphaseCollision">
-      <UniqueIdentifier>{9D988976-5C6E-4748-B04F-7FA3083A37DC}</UniqueIdentifier>
+      <UniqueIdentifier>{3C4701EE-126A-8F43-9E31-74006FFF330C}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\Initialize">
-      <UniqueIdentifier>{85FE5BE9-8AAB-E148-B485-DCC1827CDEBC}</UniqueIdentifier>
+      <UniqueIdentifier>{A9E1A540-4972-904A-8E64-04DD2171696C}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\NarrowphaseCollision">
-      <UniqueIdentifier>{02784786-7C24-7348-8F19-4D22448358B6}</UniqueIdentifier>
+      <UniqueIdentifier>{15E6527C-362E-0D4F-B8E1-0FDA12CC3EAE}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\ParallelPrimitives">
-      <UniqueIdentifier>{8F0D65B8-A5AD-5F48-987D-21D20226BC93}</UniqueIdentifier>
+      <UniqueIdentifier>{10D1EC4B-33F1-1A44-A627-F39972B9833C}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\Raycast">
-      <UniqueIdentifier>{0A26F95E-6541-5C4F-BFEF-5EFC09CF1FAB}</UniqueIdentifier>
+      <UniqueIdentifier>{8EA4D490-2E37-F648-9DB2-2513962AF137}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\RigidBody">
-      <UniqueIdentifier>{78334363-B7F8-9A40-838E-A483979FA380}</UniqueIdentifier>
+      <UniqueIdentifier>{2775DE6E-B82A-9743-8C46-3E59BDD16A4F}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\BroadphaseCollision\kernels">
-      <UniqueIdentifier>{C7B2A6F1-9BAE-C54E-A0ED-707E9547E280}</UniqueIdentifier>
+      <UniqueIdentifier>{21D6F369-D93F-B04C-928B-7007445691B1}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\NarrowphaseCollision\kernels">
-      <UniqueIdentifier>{2A4D25A4-47AE-004E-B155-739D70CDB305}</UniqueIdentifier>
+      <UniqueIdentifier>{04267A63-93E4-6B4C-8A73-586BD7C6347A}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\ParallelPrimitives\kernels">
-      <UniqueIdentifier>{C63B8FA3-A9C6-504F-B514-D77F2F01F79F}</UniqueIdentifier>
+      <UniqueIdentifier>{8098DC3B-BF28-7C41-B703-4590100ECFC7}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\Raycast\kernels">
-      <UniqueIdentifier>{90E03B91-91EA-0244-994B-ADDD9A0FCB66}</UniqueIdentifier>
+      <UniqueIdentifier>{E7EC9AD7-8F52-4945-8CDD-00D2D7FB6AFA}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Bullet3OpenCL\RigidBody\kernels">
-      <UniqueIdentifier>{88A4B476-1D87-534A-8548-3067EFA948CF}</UniqueIdentifier>
+      <UniqueIdentifier>{F30CAFE2-9CF5-EA45-9D67-9639D1139177}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

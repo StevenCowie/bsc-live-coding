@@ -2,19 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="examples">
-      <UniqueIdentifier>{090A6E09-CD66-6F47-B82F-E58079C76A5E}</UniqueIdentifier>
+      <UniqueIdentifier>{4FF4EB7E-C6D0-C44D-AE7F-B23E2840394F}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\SharedMemory">
-      <UniqueIdentifier>{C532D599-191D-EE43-AA87-5DDE9C90CB8F}</UniqueIdentifier>
+      <UniqueIdentifier>{7DDACF6E-5572-2141-BF45-50068DCA21B4}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\SharedMemory\plugins">
-      <UniqueIdentifier>{3CCCBC85-2E5D-5E4F-A987-D711DF8BBA56}</UniqueIdentifier>
+      <UniqueIdentifier>{0EBF7EB8-1FA0-9D43-9C30-D72E16D9D9DA}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\SharedMemory\plugins\vrSyncPlugin">
-      <UniqueIdentifier>{14F081E1-C1C9-9A43-A9F8-61527BB75D85}</UniqueIdentifier>
+      <UniqueIdentifier>{0977FA93-16DD-E34D-B2B6-997F8BDD8B5A}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Utils">
-      <UniqueIdentifier>{079E954E-D59D-204A-A6A0-9E72628EB339}</UniqueIdentifier>
+      <UniqueIdentifier>{05F14925-594D-EE42-81ED-E6DD4A2746E2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

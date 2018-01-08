@@ -1,3 +1,4 @@
-﻿  test_invdyn_jacobian.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\Test_InverseDynamicsJacobian\) contains files shared from another project (Test_InverseDynamicsJacobian.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  test_invdyn_jacobian.cpp
   Test_InverseDynamicsJacobian.vcxproj -> D:\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\Test_InverseDynamicsJacobian_vs2010_x64_debug.exe
   Test_InverseDynamicsJacobian.vcxproj -> ..\..\bin\Test_InverseDynamicsJacobian_vs2010_x64_debug.pdb (Partial PDB)

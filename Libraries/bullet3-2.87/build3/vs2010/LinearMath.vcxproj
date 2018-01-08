@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{707F522C-83F7-074F-BA3E-A37FBAC9A755}</ProjectGuid>
+    <ProjectGuid>{84178283-E7CD-C247-93C6-FE17E6A540E6}</ProjectGuid>
     <RootNamespace>LinearMath</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

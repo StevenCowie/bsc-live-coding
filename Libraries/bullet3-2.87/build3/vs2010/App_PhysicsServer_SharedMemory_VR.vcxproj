@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F57C00CA-D0C3-B349-86AF-9CD6BA0F51E3}</ProjectGuid>
+    <ProjectGuid>{8DE9E902-F241-F642-8085-498BBE3BEF84}</ProjectGuid>
     <RootNamespace>App_PhysicsServer_SharedMemory_VR</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

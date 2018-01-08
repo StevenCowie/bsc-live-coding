@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{53C2D9D3-0D6D-B446-A073-88A2FC3227D4}</ProjectGuid>
+    <ProjectGuid>{11691902-7B62-5E43-BBEA-CFBF916DD8FD}</ProjectGuid>
     <RootNamespace>BulletCollision</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

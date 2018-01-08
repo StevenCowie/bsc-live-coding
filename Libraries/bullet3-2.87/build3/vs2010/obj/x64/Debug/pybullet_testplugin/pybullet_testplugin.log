@@ -1,12 +1,13 @@
-﻿  testplugin.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\pybullet_testplugin\) contains files shared from another project (pybullet_testplugin.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  testplugin.cpp
   PhysicsClient.cpp
   PhysicsClientSharedMemory.cpp
   PhysicsClientSharedMemory_C_API.cpp
-..\..\examples\SharedMemory\plugins\testPlugin\testplugin.cpp(116): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 1 has type 'const int'
   PhysicsClientC_API.cpp
   Win32SharedMemory.cpp
   PosixSharedMemory.cpp
   b3Clock.cpp
+..\..\examples\SharedMemory\plugins\testPlugin\testplugin.cpp(116): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 1 has type 'const int'
   b3ResourcePath.cpp
      Creating library ..\..\bin\pybullet_testplugin_vs2010_x64_debug.lib and object ..\..\bin\pybullet_testplugin_vs2010_x64_debug.exp
   pybullet_testplugin.vcxproj -> D:\bsc-live-coding\Libraries\bullet3-2.87\build3\vs2010\..\..\bin\pybullet_testplugin_vs2010_x64_debug.dll

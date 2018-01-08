@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D3B3B018-D426-7F4C-AFFA-C3C61EB6131F}</ProjectGuid>
+    <ProjectGuid>{5509A2F9-D1BC-D340-AD7E-16B470FA349E}</ProjectGuid>
     <RootNamespace>App_RobotSimulator</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{376C9214-93C1-7346-9137-C257B657F0BB}</ProjectGuid>
+    <ProjectGuid>{29FFFCC4-2EA5-674D-A80C-D53AD2921D64}</ProjectGuid>
     <RootNamespace>Bullet3OpenCL_clew</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

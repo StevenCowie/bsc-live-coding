@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E301C67C-7229-B54F-B1E3-6911D12D44DF}</ProjectGuid>
+    <ProjectGuid>{D7A13BC5-AC27-B747-A62C-F230AE1ED1D2}</ProjectGuid>
     <RootNamespace>ConvexDecomposition</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2A24D22B-8017-824B-8E8F-919EC7EF22BF}</ProjectGuid>
+    <ProjectGuid>{F3535976-66A2-F44E-BDD5-0F9121B7A63E}</ProjectGuid>
     <RootNamespace>App_obj2sdf</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

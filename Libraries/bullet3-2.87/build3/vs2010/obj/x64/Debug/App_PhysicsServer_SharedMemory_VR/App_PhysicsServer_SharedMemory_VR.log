@@ -1,4 +1,5 @@
-﻿  RtMidi.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (obj\x64\Debug\App_PhysicsServer_SharedMemory_VR\) contains files shared from another project (App_PhysicsServer_SharedMemory_VR.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  RtMidi.cpp
   IKTrajectoryHelper.cpp
   PhysicsClient.cpp
   PhysicsClientSharedMemory.cpp
@@ -14,8 +15,6 @@
   PhysicsDirect.cpp
   PhysicsDirectC_API.cpp
   PhysicsLoopBack.cpp
-..\..\examples\SharedMemory\PhysicsServerExample.cpp(2422): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-..\..\examples\SharedMemory\PhysicsServerExample.cpp(2426): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
   PhysicsLoopBackC_API.cpp
   PhysicsClientSharedMemory_C_API.cpp
   PhysicsClientSharedMemory2_C_API.cpp
@@ -27,15 +26,17 @@
   geometry.cpp
   model.cpp
   tgaimage.cpp
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2422): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\PhysicsServerExample.cpp(2426): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
   our_gl.cpp
   TinyRenderer.cpp
-..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(575): warning C4838: conversion from 'btScalar' to 'float' requires a narrowing conversion
-..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(728): warning C4838: conversion from 'const double' to 'float' requires a narrowing conversion
   SimpleCamera.cpp
   MyMultiBodyCreator.cpp
   BulletUrdfImporter.cpp
   UrdfParser.cpp
   urdfStringSplit.cpp
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(575): warning C4838: conversion from 'btScalar' to 'float' requires a narrowing conversion
+..\..\examples\SharedMemory\TinyRendererVisualShapeConverter.cpp(728): warning C4838: conversion from 'const double' to 'float' requires a narrowing conversion
   URDF2Bullet.cpp
   BulletMJCFImporter.cpp
   b3ResourcePath.cpp
@@ -52,14 +53,6 @@
   LoadMeshFromObj.cpp
   LoadMeshFromCollada.cpp
   tiny_obj_loader.cpp
-..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(401): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
-..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(651): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
-..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(667): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
-..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(723): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
   tinystr.cpp
   tinyxml.cpp
   tinyxmlerror.cpp
@@ -115,6 +108,7 @@
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3458): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3485): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3486): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
+  hellovr_opengl_main.cpp
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3700): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3704): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(3709): warning C4312: 'type cast': conversion from 'int' to 'unsigned char *' of greater size
@@ -131,21 +125,31 @@
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(4015): warning C4312: 'type cast': conversion from 'int' to 'float *' of greater size
 ..\..\examples\ThirdPartyLibs\stb_image\stb_image.cpp(4220): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(207): note: see declaration of 'fopen'
-  hellovr_opengl_main.cpp
   OpenGLGuiHelper.cpp
   GL_ShapeDrawer.cpp
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(401): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(651): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(667): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
+..\..\examples\ThirdPartyLibs\Wavefront\tiny_obj_loader.cpp(723): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\stdio.h(2260): note: see declaration of 'sscanf'
   CollisionShape2TriangleMesh.cpp
-..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(976): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
-..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(978): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
-..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(1522): warning C4312: 'type cast': conversion from 'GLuint' to 'const void *' of greater size
-..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(1526): warning C4312: 'type cast': conversion from 'GLuint' to 'const void *' of greater size
-..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(1997): warning C4312: 'type cast': conversion from 'unsigned int' to 'const void *' of greater size
   TinyVRGui.cpp
   TimeSeriesCanvas.cpp
   TimeSeriesFontData.cpp
   lodepng.cpp
   Matrices.cpp
   strtools.cpp
+  pathtools.cpp
+  b3ThreadSupportInterface.cpp
+..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(976): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
+..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(978): warning C4312: 'type cast': conversion from 'GLuint' to 'void *' of greater size
+  b3Win32ThreadSupport.cpp
+..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(1522): warning C4312: 'type cast': conversion from 'GLuint' to 'const void *' of greater size
+..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(1526): warning C4312: 'type cast': conversion from 'GLuint' to 'const void *' of greater size
+..\..\examples\StandaloneMain\hellovr_opengl_main.cpp(1997): warning C4312: 'type cast': conversion from 'unsigned int' to 'const void *' of greater size
 ..\..\examples\ThirdPartyLibs\openvr\samples\shared\lodepng.cpp(3426): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
 ..\..\examples\ThirdPartyLibs\openvr\samples\shared\strtools.cpp(12): warning C4996: 'strnicmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strnicmp. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(565): note: see declaration of 'strnicmp'
@@ -153,9 +157,6 @@
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(554): note: see declaration of 'stricmp'
 ..\..\examples\ThirdPartyLibs\openvr\samples\shared\strtools.cpp(146): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(343): note: see declaration of 'strncpy'
-  pathtools.cpp
-  b3ThreadSupportInterface.cpp
-  b3Win32ThreadSupport.cpp
 ..\..\examples\ThirdPartyLibs\openvr\samples\shared\pathtools.cpp(517): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt\string.h(554): note: see declaration of 'stricmp'
 ..\..\examples\ThirdPartyLibs\openvr\samples\shared\pathtools.cpp(525): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.

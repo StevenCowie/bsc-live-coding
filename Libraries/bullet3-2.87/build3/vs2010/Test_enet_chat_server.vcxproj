@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{755D07D2-8F9C-FA4F-831C-AC12CCFBA545}</ProjectGuid>
+    <ProjectGuid>{C3CC2B22-DD3C-4344-9E50-AB760EA2462D}</ProjectGuid>
     <RootNamespace>Test_enet_chat_server</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

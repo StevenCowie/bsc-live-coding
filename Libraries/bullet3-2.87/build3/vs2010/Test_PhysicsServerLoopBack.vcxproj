@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CDA83775-B032-4646-BE2E-6C69F8BE980A}</ProjectGuid>
+    <ProjectGuid>{55EFE047-52FF-4541-8897-17198B33237B}</ProjectGuid>
     <RootNamespace>Test_PhysicsServerLoopBack</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

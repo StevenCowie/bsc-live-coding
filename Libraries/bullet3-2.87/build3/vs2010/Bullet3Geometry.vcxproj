@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6DA9FA34-FC86-CD4A-A6D5-FEFB3A036B73}</ProjectGuid>
+    <ProjectGuid>{598E718F-01E0-8446-A260-1AB430AE5E4B}</ProjectGuid>
     <RootNamespace>Bullet3Geometry</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

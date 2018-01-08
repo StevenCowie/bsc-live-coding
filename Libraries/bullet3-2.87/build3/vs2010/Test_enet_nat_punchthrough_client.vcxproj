@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EF483276-A773-F940-9C96-F422C9508976}</ProjectGuid>
+    <ProjectGuid>{40D1A8CB-338F-A64F-8DE3-E89CA3972930}</ProjectGuid>
     <RootNamespace>Test_enet_nat_punchthrough_client</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F2AA9BCD-5AD2-8647-A68F-7686B1BDA21C}</ProjectGuid>
+    <ProjectGuid>{C9315A64-F761-CC49-B431-A9114F2E41E6}</ProjectGuid>
     <RootNamespace>Test_InverseForwardDynamics</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

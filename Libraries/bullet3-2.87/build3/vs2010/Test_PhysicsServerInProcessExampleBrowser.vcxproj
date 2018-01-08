@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{171EB249-29F2-E343-B819-6C140BDA2CD2}</ProjectGuid>
+    <ProjectGuid>{56BF0352-5956-D041-8EDD-B7080BC16672}</ProjectGuid>
     <RootNamespace>Test_PhysicsServerInProcessExampleBrowser</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

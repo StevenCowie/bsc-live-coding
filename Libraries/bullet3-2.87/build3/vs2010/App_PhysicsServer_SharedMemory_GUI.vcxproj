@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4C869007-62F6-7A41-8F04-BE5650DF6D9E}</ProjectGuid>
+    <ProjectGuid>{ED05ADCB-9EAC-7B45-B93B-B0DF37C2C73F}</ProjectGuid>
     <RootNamespace>App_PhysicsServer_SharedMemory_GUI</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

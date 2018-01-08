@@ -2,19 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="examples">
-      <UniqueIdentifier>{CC28EB97-1179-7E42-9242-CBE71AD34AB7}</UniqueIdentifier>
+      <UniqueIdentifier>{E3B30AFC-D02E-D84B-9823-C90662B37785}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\SharedMemory">
-      <UniqueIdentifier>{2E0D3A5D-22D1-1644-A296-0BB64874C87D}</UniqueIdentifier>
+      <UniqueIdentifier>{5894E2F4-64F7-CF40-9577-863D97484F0A}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\SharedMemory\plugins">
-      <UniqueIdentifier>{C2C5C5A8-1950-9F4A-81A6-397C4E78B0B7}</UniqueIdentifier>
+      <UniqueIdentifier>{E9CEF506-E435-C74D-A761-BB271A299D71}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\SharedMemory\plugins\testPlugin">
-      <UniqueIdentifier>{EAAEDBAF-9477-594F-B6E2-D0438389F4AE}</UniqueIdentifier>
+      <UniqueIdentifier>{A2B78D46-F6BB-D843-BBF1-5DBAD52760BD}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\Utils">
-      <UniqueIdentifier>{D147CC04-7AFB-1A43-B93A-5BDF72ECEDF0}</UniqueIdentifier>
+      <UniqueIdentifier>{EC42FB9D-94F9-BA40-8F68-669B5251AB80}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

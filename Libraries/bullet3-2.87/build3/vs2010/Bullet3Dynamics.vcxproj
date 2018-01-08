@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2B4EBC0E-6948-1C4B-9E4A-D3BBEFC755D1}</ProjectGuid>
+    <ProjectGuid>{95AE881C-C880-C84B-BE29-2F6DEA8C0330}</ProjectGuid>
     <RootNamespace>Bullet3Dynamics</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

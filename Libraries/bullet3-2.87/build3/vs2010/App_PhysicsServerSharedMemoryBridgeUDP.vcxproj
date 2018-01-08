@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9C7DDD67-BBF4-AC4A-9231-2F5A1F56E720}</ProjectGuid>
+    <ProjectGuid>{907A1A0C-5B0E-E14D-BC5C-C567400C70F4}</ProjectGuid>
     <RootNamespace>App_PhysicsServerSharedMemoryBridgeUDP</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

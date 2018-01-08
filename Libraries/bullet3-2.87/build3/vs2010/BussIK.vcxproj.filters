@@ -2,13 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="examples">
-      <UniqueIdentifier>{71092A59-143A-A14D-953F-A8C8E37CB9BB}</UniqueIdentifier>
+      <UniqueIdentifier>{04EC59DF-669A-B644-AC5D-7079E745DF16}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs">
-      <UniqueIdentifier>{A04BE156-1554-4548-83F2-4E66B64EE38E}</UniqueIdentifier>
+      <UniqueIdentifier>{EC163079-EEE7-C748-BFC0-E9FCC3184AAC}</UniqueIdentifier>
     </Filter>
     <Filter Include="examples\ThirdPartyLibs\BussIK">
-      <UniqueIdentifier>{9E1F6573-2279-1241-9C16-8BAEEEC75834}</UniqueIdentifier>
+      <UniqueIdentifier>{F4B0B339-A48F-F640-B1EF-DD2455DCFAF7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

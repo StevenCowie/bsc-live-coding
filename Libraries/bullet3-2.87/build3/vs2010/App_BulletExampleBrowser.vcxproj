@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C5667D06-25B2-9041-8531-60909F5D56BD}</ProjectGuid>
+    <ProjectGuid>{325506AE-0FB4-C540-BF2B-D4F9530A5338}</ProjectGuid>
     <RootNamespace>App_BulletExampleBrowser</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

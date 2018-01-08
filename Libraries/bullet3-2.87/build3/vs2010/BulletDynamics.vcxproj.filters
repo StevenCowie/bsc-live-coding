@@ -2,28 +2,28 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
-      <UniqueIdentifier>{94F70FDE-A94D-BA42-B0FE-37D7F09D1AE7}</UniqueIdentifier>
+      <UniqueIdentifier>{9E20E7F2-FFAB-384C-B3A0-8B0853206A2E}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletDynamics">
-      <UniqueIdentifier>{BEB422F6-3A74-284C-8670-BA9CA3D7E43E}</UniqueIdentifier>
+      <UniqueIdentifier>{C0B37C10-001E-6648-8F48-6D37FADD6378}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletDynamics\Dynamics">
-      <UniqueIdentifier>{D02856BD-90CA-D344-BBE7-4332B62EC70D}</UniqueIdentifier>
+      <UniqueIdentifier>{0554F6E0-1B47-FB41-BDC9-BC4562F68003}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletDynamics\ConstraintSolver">
-      <UniqueIdentifier>{335A28FD-A243-1148-822E-1550AE122A6A}</UniqueIdentifier>
+      <UniqueIdentifier>{F936CFAC-665C-7542-B636-18E509BC8C99}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletDynamics\Featherstone">
-      <UniqueIdentifier>{73A2F4C4-FB96-3745-BFB2-D5C401BF3B1B}</UniqueIdentifier>
+      <UniqueIdentifier>{097C3A62-40F6-5C4B-8849-D8470F56BEB3}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletDynamics\MLCPSolvers">
-      <UniqueIdentifier>{D7298D5F-A826-0D4F-8268-E43E1D8A495B}</UniqueIdentifier>
+      <UniqueIdentifier>{EA5FDC89-C58A-B547-B2D1-C803E78BB227}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletDynamics\Vehicle">
-      <UniqueIdentifier>{C2E9F698-387E-8C42-95F6-536E53C8389C}</UniqueIdentifier>
+      <UniqueIdentifier>{09FE9ECB-03E1-2E49-A506-E760C479DEEA}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\BulletDynamics\Character">
-      <UniqueIdentifier>{0D7F9545-9426-AD47-A4E3-B7F9201C721A}</UniqueIdentifier>
+      <UniqueIdentifier>{BA417287-9373-8245-ACF0-D135F355ECE5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

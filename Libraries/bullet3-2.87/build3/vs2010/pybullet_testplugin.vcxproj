@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{63672E67-5BD9-8A4D-A188-F360A1619F27}</ProjectGuid>
+    <ProjectGuid>{2E4852E5-39A6-BB45-8D2B-827AE9E7F9D5}</ProjectGuid>
     <RootNamespace>pybullet_testplugin</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DBBF57FE-A944-F74D-958B-AD7F4DB2E47C}</ProjectGuid>
+    <ProjectGuid>{BE01CB90-4F29-974B-BE24-FA0BC60BC5B2}</ProjectGuid>
     <RootNamespace>HACD</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
