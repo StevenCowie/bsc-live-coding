@@ -22,6 +22,7 @@ Camera::~Camera()
 
 }
 
+//Updates camera position
 void Camera::FPSUpdate()
 {
 	m_CameraPosition += m_FPSCamera;

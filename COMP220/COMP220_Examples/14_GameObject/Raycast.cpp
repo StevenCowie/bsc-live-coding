@@ -2,6 +2,7 @@
 
 Raycast::Raycast()
 {
+	//sets default start and end position
 	rayStartPosition = glm::vec4(0.0f, 0.0f, -1.0f, 1.0f);
 	rayEndPosition = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 }
@@ -26,12 +27,15 @@ void Raycast::update(Camera* camera, btDynamicsWorld* dynamicsWorld)
 	//glm::vec4 lRayStart_world = M * lRayStart_NDC; lRayStart_world/=lRayStart_world.w;
 	//glm::vec4 lRayEnd_world   = M * lRayEnd_NDC  ; lRayEnd_world  /=lRayEnd_world.w;
 
+	//Checks and normalizes value of ray direction
 	glm::vec3 rayDir_world(rayEnd_world - rayStart_world);
 	rayDir_world = glm::normalize(rayDir_world);
 
+	//
 	glm::vec3 out_origin = glm::vec3(rayStart_world.x, rayStart_world.y, rayStart_world.z);
 	glm::vec3 out_end = out_origin + rayDir_world*1000.0f;
 
+	//calculates if object is hit or not
 	btCollisionWorld::ClosestRayResultCallback RayCallback(
 		btVector3(out_origin.x, out_origin.y, out_origin.z),
 		btVector3(out_end.x, out_end.y, out_end.z)
@@ -42,6 +46,7 @@ void Raycast::update(Camera* camera, btDynamicsWorld* dynamicsWorld)
 		RayCallback
 	);
 
+	//Checks to see if something is hit
 	if (RayCallback.hasHit())
 	{
 		printf("hit something \n");

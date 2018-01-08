@@ -165,6 +165,7 @@ private:
 	float m_CameraY;
 	float m_CameraDistance;
 
+	//Matrixs
 	GLuint m_ShaderProgramID;
 	glm::mat4 m_ViewMatrix;
 	glm::mat4 m_ProjectionMatrix;

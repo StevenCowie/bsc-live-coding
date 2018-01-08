@@ -51,8 +51,10 @@ int main(int argc, char* args[])
 	{
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, (char*)glewGetErrorString(glewError), "GLEW Init Failed", NULL);
 	}
+	//Ebales depth testing
 	glEnable(GL_DEPTH_TEST);
 
+	//Sets projection matrix
 	mat4 projectionMatrix = perspective(radians(90.0f), float(800 / 600), 0.1f, 100.0f);
 
 	//light
@@ -61,11 +63,12 @@ int main(int argc, char* args[])
 	vec4 diffuseLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	vec4 specularLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
+	//Gameobject
 	std::vector<GameObject*> GameObjectList;
-
+	//Loop for gameobject, if there are less than 5 spawned in, spawn in 1 more
 	for (int i = 0; i < 5; ++i)
 	{
-		//Create GameObject
+		//Create GameObject & sets properties
 		GameObject * pDroid = new GameObject();
 		pDroid->setRotation(vec3(1.0f, 1.2f, 1.0f));
 		pDroid->setPosition(vec3(0.5f, 0.5f, (float)i));
@@ -75,7 +78,8 @@ int main(int argc, char* args[])
 		pDroid->loadShaderProgram("textureVert.glsl", "textureFrag.glsl");
 		GameObjectList.push_back(pDroid);
 	};
-
+	
+	//Creates new seperate gameobject with different mesh
 	GameObject * pTank = new GameObject();
 	pTank = new GameObject();
 	pTank->setPosition(vec3(0.5f, 0.2f, -0.5f));
@@ -113,6 +117,7 @@ int main(int argc, char* args[])
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderBufferID);
 	glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, colourBufferID, 0);
 
+	//Checks to see if framebuffer is set up right
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 	{
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Unable to create frame buffer for post processing","Frame Buffer Error", NULL);
@@ -127,6 +132,7 @@ int main(int argc, char* args[])
 		1,1,
 	};
 
+	//
 	GLuint screenQuadVBOID;
 	glGenBuffers(1, &screenQuadVBOID);
 	glBindBuffer(GL_ARRAY_BUFFER, screenQuadVBOID);
@@ -145,7 +151,7 @@ int main(int argc, char* args[])
 	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlueAndRed.glsl");
 	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
 
-	//He uses texture verts and frags might need to change
+	//Loads shaders
 	GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
 
 	static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
@@ -169,7 +175,7 @@ int main(int argc, char* args[])
 	GLint specularMaterialColourLocation = glGetUniformLocation(programID, "specularMaterialColour");
 	GLint specularPowerLocation = glGetUniformLocation(programID, "specularPower");
 	
-
+	//Bullet Physics Initialised
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
 	
 	btDefaultCollisionConfiguration* collisionConfiguration = new btDefaultCollisionConfiguration();
@@ -203,17 +209,9 @@ int main(int argc, char* args[])
 	//add the body to the dynamics world
 	dynamicsWorld->addRigidBody(groundRigidBody);
 
-	//btCollisionShape* droidCollisionShape = new btBoxShape(btVector3(2, 2, 2));
-
-	///// Create Dynamic Objects
-	//btTransform droidTransform;
-	//droidTransform.setIdentity();
-	//droidTransform.setOrigin(btVector3(trianglePosition.x, trianglePosition.y, trianglePosition.z));
-	//btVector3 droidInertia(0, 0, 0);
-	//btScalar droidMass(1.f);
-	//droidCollisionShape->calculateLocalInertia(droidMass, droidInertia);
-
+	//Creates new collision shape for tank
 	btCollisionShape* tankCollisionShape = new btBoxShape(btVector3(2, 2, 2));
+	
 	/// Create Dynamic Objects
 	btTransform tankTransform;
 	tankTransform.setIdentity();
@@ -221,13 +219,6 @@ int main(int argc, char* args[])
 	btScalar tankMass(1.f);
 	tankCollisionShape->calculateLocalInertia(tankMass, tankInertia);
 
-	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
-	//btDefaultMotionState* droidMotionState = new btDefaultMotionState(droidTransform);
-	//btRigidBody::btRigidBodyConstructionInfo droidRbInfo(droidMass, droidMotionState, droidCollisionShape, droidInertia);
-	//btRigidBody* droidRigidBody = new btRigidBody(droidRbInfo);
-
-	//dynamicsWorld->addRigidBody(droidRigidBody);
-	
 	//using motionstate is recommended, it provides interpolation capabilities, and only synchronizes 'active' objects
 	btDefaultMotionState* tankMotionState = new btDefaultMotionState(tankTransform);
 	btRigidBody::btRigidBodyConstructionInfo tankRbInfo(tankMass, tankMotionState, tankCollisionShape, tankInertia);
@@ -283,7 +274,7 @@ int main(int argc, char* args[])
 				{
 				case SDL_BUTTON_LEFT:
 				{
-					// Fire raycast
+					// Fires raycast
 					raycast->update(camera, dynamicsWorld);
 					break;
 				}
@@ -300,23 +291,28 @@ int main(int argc, char* args[])
 				switch (ev.key.keysym.sym)
 				{
 					// Keys
+				//Quits application
 				case SDLK_ESCAPE:
 					running = false;
 					break;
+				//Moves tnak "right"
 				case SDLK_RIGHT:
 					tankRigidBody->applyCentralForce(tankForceLeft);
 					break;
+				//Moves tank "left"
 				case SDLK_LEFT:
 					tankRigidBody->applyCentralForce(tankForceRight);
 					break;
+				//Moves tank "forward"
 				case SDLK_UP:
 					tankRigidBody->applyCentralForce(tankForceForward);
 					break;
+				//Moves tank "backward"
 				case SDLK_DOWN:
 					tankRigidBody->applyCentralForce(tankForceBackward);
 					break;
 
-
+				//Makes tank jump
 				case SDLK_SPACE:
 					tankRigidBody->applyCentralForce(tankForceJump);
 					break;
@@ -326,32 +322,27 @@ int main(int argc, char* args[])
 					invertGravity *= -1;
 					dynamicsWorld->setGravity(btVector3(0, invertGravity, 0));
 					break;
-
+				//Moves camera forward
 				case SDLK_w:
 					camera->Forward();
 					camera->FPSUpdate();
-					//FPScameraPos = cameraDirection * 0.2f;
 					break;
+				//Moves camera backward
 				case SDLK_s:
 					camera->Backward();
 					camera->FPSUpdate();
-					/*FPScameraPos = -cameraDirection * 0.2f;*/
 					break;
+				//Moves camera left
 				case SDLK_a:
 					camera->Left();
 					camera->FPSUpdate();
-					/*FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;*/
 					break;
+				//Moves camera right
 				case SDLK_d:
 					camera->Right();
 					camera->FPSUpdate();
-					/*FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;*/
 					break;
-				}
-				//cameraPosition += FPScameraPos;
-				//cameraTarget += FPScameraPos;
-
-				
+				}				
 			}
 		}
 		//Update Game and Draw with OpenGL!!
@@ -361,13 +352,15 @@ int main(int argc, char* args[])
 		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
 
 
-
+		//Updates tank position after physics is applied
 		tankTransform = tankRigidBody->getWorldTransform();
 		btVector3 tankOrigin = tankTransform.getOrigin();
 		pTank->setPosition(glm::vec3(tankOrigin.x(), tankOrigin.y(), tankOrigin.z()));
+		
 		//Updates Camera
 		camera->Update();
 
+		//Updates gameobjects
 		for (GameObject* pObj : GameObjectList)
 		{
 			pObj->update();
@@ -445,11 +438,6 @@ int main(int argc, char* args[])
 		//glUniform4fv(specularMaterialColourLocation, 1, value_ptr(specularMaterialColour));
 		//glUniform1f(specularPowerLocation, specularPower);
 
-		// Draw
-		//for (Mesh* currentMesh : meshes)
-		//{
-		//	currentMesh->render();
-		//}
 
 		glDisable(GL_DEPTH_TEST);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -471,16 +459,13 @@ int main(int argc, char* args[])
 
 	}
 
-	//dynamicsWorld->removeRigidBody(droidRigidBody);
-	//delete droidCollisionShape;
-	//delete droidRigidBody->getMotionState();
-	//delete droidRigidBody;
-
+	//deletes tank physics
 	dynamicsWorld->removeRigidBody(tankRigidBody);
 	delete tankCollisionShape;
 	delete tankRigidBody->getMotionState();
 	delete tankRigidBody;
 
+	//removes rigidbody from ground
 	dynamicsWorld->removeRigidBody(groundRigidBody);
 
 	//delete ground
@@ -500,23 +485,8 @@ int main(int argc, char* args[])
 	//delete dispatcher
 	delete dispatcher;
 
+	//deletes collision
 	delete collisionConfiguration;
-
-	//auto iter = meshes.begin();
-	//while (iter != meshes.end())
-	//{
-	//	if ((*iter))
-	//	{
-	//		(*iter)->destroy();
-	//		delete (*iter);
-	//		iter = meshes.erase(iter);
-	//	}
-	//	else
-	//	{
-	//		iter++;
-	//	}
-	//}
-
 
 	auto GameObjectIter = GameObjectList.begin();
 	while (GameObjectIter != GameObjectList.end())
