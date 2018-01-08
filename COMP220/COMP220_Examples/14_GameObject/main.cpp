@@ -51,7 +51,7 @@ int main(int argc, char* args[])
 	{
 		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, (char*)glewGetErrorString(glewError), "GLEW Init Failed", NULL);
 	}
-
+	glEnable(GL_DEPTH_TEST);
 
 	mat4 projectionMatrix = perspective(radians(90.0f), float(800 / 600), 0.1f, 100.0f);
 
@@ -89,7 +89,7 @@ int main(int argc, char* args[])
 	Camera * camera = new Camera();
 
 	//Creates raycast
-	//Raycast * raycast = new Raycast();
+	Raycast * raycast = new Raycast();
 
 	//material
 	vec4 ambientMaterialColour = vec4(0.1f, 0.1f, 0.1f, 1.0f);
@@ -203,7 +203,7 @@ int main(int argc, char* args[])
 	//add the body to the dynamics world
 	dynamicsWorld->addRigidBody(groundRigidBody);
 
-	btCollisionShape* droidCollisionShape = new btBoxShape(btVector3(2, 2, 2));
+	//btCollisionShape* droidCollisionShape = new btBoxShape(btVector3(2, 2, 2));
 
 	///// Create Dynamic Objects
 	//btTransform droidTransform;
@@ -232,6 +232,7 @@ int main(int argc, char* args[])
 	btDefaultMotionState* tankMotionState = new btDefaultMotionState(tankTransform);
 	btRigidBody::btRigidBodyConstructionInfo tankRbInfo(tankMass, tankMotionState, tankCollisionShape, tankInertia);
 	btRigidBody* tankRigidBody = new btRigidBody(tankRbInfo);
+	tankRigidBody->setActivationState(DISABLE_DEACTIVATION);
 
 	dynamicsWorld->addRigidBody(tankRigidBody);
 
@@ -245,16 +246,15 @@ int main(int argc, char* args[])
 	btVector3 tankForceBackward = btVector3(0, 0, -5);
 
 	//Impulse Movement
-	btVector3 tankImpulse = btVector3(0, 0, 0);
+	btVector3 tankImpulse = btVector3(4, 0, 0);
 
 	//Torque Movement
-	btVector3 tankTorque = btVector3(0, 0, 0);
+	btVector3 tankTorque = btVector3(4, 0, 0);
 
 	//SDL_ShowCursor(SDL_DISABLE);
 	SDL_SetRelativeMouseMode(SDL_bool(SDL_ENABLE));
 
 	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
 	int lastTicks = SDL_GetTicks();
 	int currentTicks = SDL_GetTicks();
 
@@ -277,17 +277,17 @@ int main(int argc, char* args[])
 				running = false;
 				break;
 
-			//case SDL_MOUSEBUTTONDOWN:
-			//	// Check button code of the pressed mouse button
-			//	switch (ev.button.button)
-			//	{
-			//	case SDL_BUTTON_LEFT:
-			//	{
-			//		// Fire raycast
-			//		raycast->update(camera, dynamicsWorld);
-			//		break;
-			//	}
-			//	}
+			case SDL_MOUSEBUTTONDOWN:
+				// Check button code of the pressed mouse button
+				switch (ev.button.button)
+				{
+				case SDL_BUTTON_LEFT:
+				{
+					// Fire raycast
+					raycast->update(camera, dynamicsWorld);
+					break;
+				}
+				}
 
 			case SDL_MOUSEMOTION:
 				// Get Mouse Motion of X and Y
@@ -329,32 +329,42 @@ int main(int argc, char* args[])
 
 				case SDLK_w:
 					camera->Forward();
+					camera->FPSUpdate();
 					//FPScameraPos = cameraDirection * 0.2f;
 					break;
 				case SDLK_s:
 					camera->Backward();
+					camera->FPSUpdate();
 					/*FPScameraPos = -cameraDirection * 0.2f;*/
 					break;
 				case SDLK_a:
 					camera->Left();
+					camera->FPSUpdate();
 					/*FPScameraPos = -cross(cameraDirection, cameraUp) * 0.5f;*/
 					break;
 				case SDLK_d:
 					camera->Right();
+					camera->FPSUpdate();
 					/*FPScameraPos = cross(cameraDirection, cameraUp) * 0.5f;*/
 					break;
 				}
 				//cameraPosition += FPScameraPos;
 				//cameraTarget += FPScameraPos;
 
-				camera->FPSUpdate();
+				
 			}
 		}
 		//Update Game and Draw with OpenGL!!
 
 		currentTicks = SDL_GetTicks();
 		float deltaTime = (float)(currentTicks - lastTicks) / 1000.0f;
+		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
 
+
+
+		tankTransform = tankRigidBody->getWorldTransform();
+		btVector3 tankOrigin = tankTransform.getOrigin();
+		pTank->setPosition(glm::vec3(tankOrigin.x(), tankOrigin.y(), tankOrigin.z()));
 		//Updates Camera
 		camera->Update();
 
@@ -363,7 +373,7 @@ int main(int argc, char* args[])
 			pObj->update();
 		}
 
-		dynamicsWorld->stepSimulation(1.f / 60.f, 10);
+
 
 		//droidTransform = droidRigidBody->getWorldTransform();
 		//btVector3 droidOrigin = droidTransform.getOrigin();
@@ -371,7 +381,7 @@ int main(int argc, char* args[])
 
 
 
-		//glEnable(GL_DEPTH_TEST);
+		glEnable(GL_DEPTH_TEST);
 		//glGenFramebuffers(1, &frameBufferID);
 		glBindFramebuffer(GL_FRAMEBUFFER, frameBufferID);
 		glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -529,7 +539,7 @@ int main(int argc, char* args[])
 	delete camera;
 
 	//Delete Raycast
-	//delete raycast;
+	delete raycast;
 
 	glDeleteProgram(postProcessingProgramID);
 	glDeleteVertexArrays(1, &screenVAO);
