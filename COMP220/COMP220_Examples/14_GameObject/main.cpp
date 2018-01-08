@@ -132,13 +132,14 @@ int main(int argc, char* args[])
 		1,1,
 	};
 
-	//
+	//Binds Buffer
 	GLuint screenQuadVBOID;
 	glGenBuffers(1, &screenQuadVBOID);
 	glBindBuffer(GL_ARRAY_BUFFER, screenQuadVBOID);
 	glBufferData(GL_ARRAY_BUFFER, 8 * sizeof(GLfloat), screenVerts, GL_STATIC_DRAW);
 
 	//Generates vertex array objects
+	//describes how vertex attributes are stored
 	GLuint screenVAO;
 	glGenVertexArrays(1, &screenVAO);
 	glBindVertexArray(screenVAO);
@@ -148,32 +149,13 @@ int main(int argc, char* args[])
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	//Put post processing shaders here
-	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlueAndRed.glsl");
+	GLuint postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postGreyScale.glsl");
 	GLint texture0Location = glGetUniformLocation(postProcessingProgramID, "texture0");
 
 	//Loads shaders
 	GLuint programID = LoadShaders("lightingVert.glsl", "lightingFrag.glsl");
 
 	static const GLfloat fragColour[] = { 0.0f,1.0f,0.0f,1.0f };
-
-	GLint fragColourLocation = glGetUniformLocation(programID, "fragColour");
-	
-	GLint currentTimeLocation = glGetUniformLocation(programID, "time");
-	GLint modelMatrixLocation = glGetUniformLocation(programID, "modelMatrix");
-	GLint viewMatrixLocation = glGetUniformLocation(programID, "viewMatrix");
-	GLint projectionMatrixLocation = glGetUniformLocation(programID, "projectionMatrix");
-	GLint textureLocation = glGetUniformLocation(programID, "baseTexture");
-	GLint cameraPositionLocation = glGetUniformLocation(programID, "cameraPosition");
-
-	GLint lightDirectionLocation = glGetUniformLocation(programID, "lightDirection");
-	GLint ambientLightColourLocation = glGetUniformLocation(programID, "ambientLightColour");
-	GLint diffuseLightColourLocation = glGetUniformLocation(programID, "diffuseLightColour");
-	GLint specularLightColourLocation = glGetUniformLocation(programID, "specularLightColour");
-
-	GLint ambientMaterialColourLocation = glGetUniformLocation(programID, "ambientMaterialColour");
-	GLint diffuseMaterialColourLocation = glGetUniformLocation(programID, "diffuseMaterialColour");
-	GLint specularMaterialColourLocation = glGetUniformLocation(programID, "specularMaterialColour");
-	GLint specularPowerLocation = glGetUniformLocation(programID, "specularPower");
 	
 	//Bullet Physics Initialised
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
@@ -191,10 +173,13 @@ int main(int argc, char* args[])
 
 	btDiscreteDynamicsWorld* dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
 
+	//sets gravity
 	dynamicsWorld->setGravity(btVector3(0, -10, 0));
 
+	//Creates new shape for ground
 	btCollisionShape* groundShape = new btBoxShape(btVector3(btScalar(50.), btScalar(2.), btScalar(50.)));
 
+	//Sets origin of ground
 	btTransform groundTransform;
 	groundTransform.setIdentity();
 	groundTransform.setOrigin(btVector3(0, -10, 0));
@@ -225,22 +210,18 @@ int main(int argc, char* args[])
 	btRigidBody* tankRigidBody = new btRigidBody(tankRbInfo);
 	tankRigidBody->setActivationState(DISABLE_DEACTIVATION);
 
+	//adds rigid body to tank
 	dynamicsWorld->addRigidBody(tankRigidBody);
 
+	//Inverts Gravity for future plans
 	int invertGravity = -10;
 
-	//Force Movement
+	//Tank Force Movement
 	btVector3 tankForceJump = btVector3(0, 20, 0);
 	btVector3 tankForceLeft = btVector3(-20, 0, 0);
 	btVector3 tankForceRight = btVector3(20, 0, 0);
 	btVector3 tankForceForward = btVector3(0, 0, 20);
 	btVector3 tankForceBackward = btVector3(0, 0, -20);
-
-	//Impulse Movement
-	btVector3 tankImpulse = btVector3(4, 0, 0);
-
-	//Torque Movement
-	btVector3 tankTorque = btVector3(4, 0, 0);
 
 	//SDL_ShowCursor(SDL_DISABLE);
 	SDL_SetRelativeMouseMode(SDL_bool(SDL_ENABLE));
@@ -295,19 +276,19 @@ int main(int argc, char* args[])
 				case SDLK_ESCAPE:
 					running = false;
 					break;
-				//Moves tnak "right"
+				//Moves tnak "forward"
 				case SDLK_RIGHT:
 					tankRigidBody->applyCentralForce(tankForceLeft);
 					break;
-				//Moves tank "left"
+				//Moves tank "backward"
 				case SDLK_LEFT:
 					tankRigidBody->applyCentralForce(tankForceRight);
 					break;
-				//Moves tank "forward"
+				//Moves tank "left"
 				case SDLK_UP:
 					tankRigidBody->applyCentralForce(tankForceForward);
 					break;
-				//Moves tank "backward"
+				//Moves tank "right"
 				case SDLK_DOWN:
 					tankRigidBody->applyCentralForce(tankForceBackward);
 					break;
@@ -341,6 +322,19 @@ int main(int argc, char* args[])
 				case SDLK_d:
 					camera->Right();
 					camera->FPSUpdate();
+					break;
+					//changes post processing
+				case SDLK_1:
+					postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postGreyScale.glsl");
+					break;
+				case SDLK_2:
+					postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlueAndRed.glsl");
+					break;
+				case SDLK_3:
+					postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postBlackAndWhite.glsl");
+					break;
+				case SDLK_4:
+					postProcessingProgramID = LoadShaders("passThroughVert.glsl", "postTextureFrag.glsl");
 					break;
 				}				
 			}
@@ -399,44 +393,11 @@ int main(int argc, char* args[])
 			glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
 			glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
 			glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
+
+			//Renders camera and gameobjects
 			camera->Render(currentProgramID);
 			pObj->render();
 		}
-
-		////Retrieve the shader values
-		////Take Lighting across too
-		//GLint viewMatrixLocation = glGetUniformLocation(currentProgramID, "viewMatrix");
-		//GLint projectionMatrixLocation = glGetUniformLocation(currentProgramID, "projectionMatrix");
-
-		////Send shader values
-		//glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
-		//glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
-
-
-		//glActiveTexture(GL_TEXTURE0);
-		//glBindTexture(GL_TEXTURE_2D, textureID);
-
-		//glUseProgram(programID);
-
-		//glUniform4fv(fragColourLocation, 1, fragColour);
-		//glUniform1f(currentTimeLocation, (float)(currentTicks) / 1000.0f);
-		//glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, value_ptr(modelMatrix));
-		//glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, value_ptr(viewMatrix));
-		//glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, value_ptr(projectionMatrix));
-
-		//glUniform3fv(cameraPositionLocation, 1, value_ptr(cameraPosition));
-
-		//glUniform1i(textureLocation, 0);
-
-		//glUniform3fv(lightDirectionLocation,1,value_ptr(lightDirection));
-		//glUniform4fv(ambientLightColourLocation, 1, value_ptr(ambientLightColour));
-		//glUniform4fv(diffuseLightColourLocation, 1, value_ptr(diffuseLightColour));
-		//glUniform4fv(specularLightColourLocation, 1, value_ptr(specularLightColour));
-
-		//glUniform4fv(ambientMaterialColourLocation, 1, value_ptr(ambientMaterialColour));
-		//glUniform4fv(diffuseMaterialColourLocation, 1, value_ptr(diffuseMaterialColour));
-		//glUniform4fv(specularMaterialColourLocation, 1, value_ptr(specularMaterialColour));
-		//glUniform1f(specularPowerLocation, specularPower);
 
 
 		glDisable(GL_DEPTH_TEST);
