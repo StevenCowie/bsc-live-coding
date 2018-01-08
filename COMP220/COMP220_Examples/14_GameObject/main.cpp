@@ -306,22 +306,22 @@ int main(int argc, char* args[])
 				//Moves camera forward
 				case SDLK_w:
 					camera->Forward();
-					camera->FPSUpdate();
+					camera->cameraPosition();
 					break;
 				//Moves camera backward
 				case SDLK_s:
 					camera->Backward();
-					camera->FPSUpdate();
+					camera->cameraPosition();
 					break;
 				//Moves camera left
 				case SDLK_a:
 					camera->Left();
-					camera->FPSUpdate();
+					camera->cameraPosition();
 					break;
 				//Moves camera right
 				case SDLK_d:
 					camera->Right();
-					camera->FPSUpdate();
+					camera->cameraPosition();
 					break;
 					//changes post processing
 				case SDLK_1:

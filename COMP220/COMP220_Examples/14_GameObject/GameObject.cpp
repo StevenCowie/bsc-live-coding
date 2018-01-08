@@ -2,6 +2,7 @@
 
 GameObject::GameObject()
 {
+	//game object properties
 	m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
 	m_Scale = glm::vec3(1.0f, 1.0f, 1.0f);
 	m_Rotation = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -9,33 +10,40 @@ GameObject::GameObject()
 
 	m_DiffuseMap = 0;
 
+	//material properties
 	m_AmbientMaterialColour = glm::vec4(0.2f, 0.2f, 0.2f, 1.0f);
 	m_DiffuseMaterialColour = glm::vec4(0.6f, 0.6f, 0.6f, 1.0f);
 	m_SpecularMaterialColour = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	m_SpecularPower = 25.0f;
 
+	//shader program ID
 	m_ShaderProgramID = 0;
 }
 
+//Deconstructor
 GameObject::~GameObject()
 {
 }
 
+//Loads Mesh
 void GameObject::loadMesh(const std::string & filename)
 {
 	loadMeshesFromFile(filename, m_Meshes);
 }
 
+//Loads Texture
 void GameObject::loadDiffuseTextureFromFile(const std::string & filename)
 {
 	m_DiffuseMap = loadTextureFromFile(filename);
 }
 
+//Loads Shaders
 void GameObject::loadShaderProgram(const std::string & VertexShaderFilename, const std::string & fragmentShaderFilename)
 {
 	m_ShaderProgramID = LoadShaders(VertexShaderFilename.c_str(), fragmentShaderFilename.c_str());
 }
 
+//Updates Gameobject by updating matrixs
 void GameObject::update()
 {
 	glm::mat4 translationMatrix = glm::translate(m_Position);
@@ -46,6 +54,7 @@ void GameObject::update()
 	m_ModelMatrix = translationMatrix * rotationMatrix*scaleMatrix;
 }
 
+//Destroys game object
 void GameObject::destroy()
 {
 	glDeleteTextures(1, &m_DiffuseMap);
@@ -66,6 +75,7 @@ void GameObject::destroy()
 	}
 }
 
+//Gets/Sets everything needed before it renders
 void GameObject::prerender()
 {
 	glUseProgram(m_ShaderProgramID);
@@ -105,6 +115,7 @@ void GameObject::prerender()
 	glUniform1f(specularPowerLocation, m_SpecularPower);
 }
 
+//Renders Mesh
 void GameObject::render()
 {
 	// Draw

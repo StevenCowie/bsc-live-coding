@@ -17,7 +17,7 @@ public:
 	void Backward();
 	void Right();
 	void Left();
-	void FPSUpdate();
+	void cameraPosition();
 	void Update();
 	void Render(GLint ShaderID);
 
